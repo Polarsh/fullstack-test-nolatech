@@ -100,9 +100,16 @@ export const loginUser = async (req, res) => {
       { expiresIn: "24h" }
     );
 
+    const userRes = {
+      name: user.name,
+      email: user.email,
+      role: user.role,
+      employeeId: employee.id,
+    };
+
     res.json({
       error: null,
-      data: { token, message: "Inicio de sesión exitoso" },
+      data: { token, message: "Inicio de sesión exitoso", user: userRes },
     });
   } catch (error) {
     res.status(500).json({
