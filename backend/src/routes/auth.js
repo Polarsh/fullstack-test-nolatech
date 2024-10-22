@@ -12,8 +12,8 @@ const router = Router();
 // Ruta para registrar
 router.post(
   "/register",
-  // authenticateAndAuthorizeRoles("Admin"),
-  validateUser, // Valida parametros
+  authenticateAndAuthorizeRoles("Admin"),
+  validateUser,
   registerUser
 );
 
