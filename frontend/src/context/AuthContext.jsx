@@ -1,31 +1,50 @@
-import { createContext, useContext, useState } from 'react'
+import { createContext, useContext, useEffect, useState } from 'react'
 
-export const AuthContext = createContext()
+import AuthServices from '../modules/auth/authServices'
+import { toast } from 'sonner'
 
-export const useAuth = () => {
-  const context = useContext(AuthContext)
-  if (!context) {
-    throw new Error('useAuth debe usarse dentro de un AuthProvider')
+const AuthContext = createContext()
+
+export const AuthProvider = ({ children }) => {
+  const [user, setUser] = useState(null)
+  const [loading, setLoading] = useState(true)
+
+  useEffect(() => {
+    const token = localStorage.getItem('token')
+    if (token) {
+      const currentUser = AuthServices.getCurrentUser()
+      setUser(currentUser)
+    }
+    setLoading(false)
+  }, [])
+
+  const login = async (email, password) => {
+    try {
+      setLoading(true)
+      const data = await AuthServices.login(email, password)
+      setUser(data.user)
+      toast.success('Inicio de sesión exitoso')
+    } catch (error) {
+      toast.error('Error al iniciar sesión. Verifica tus credenciales')
+      console.error('Error al iniciar sesión:', error)
+    } finally {
+      setLoading(false)
+    }
   }
-  return context
-}
 
-const defaultUser = {
-  name: 'Admin',
-  email: 'Admin@gmail.com',
-  id: 'xasd',
-}
-
-export function AuthProvider({ children }) {
-  const [currentUser, setCurrentUser] = useState(defaultUser)
-  const [loading, setLoading] = useState(false)
+  const logout = () => {
+    AuthServices.logout()
+    setUser(null)
+    toast.success('Cierre de sesión exitoso')
+  }
 
   return (
-    <AuthContext.Provider
-      value={{
-        currentUser,
-      }}>
-      {!loading && children}
+    <AuthContext.Provider value={{ user, login, logout, loading }}>
+      {children}
     </AuthContext.Provider>
   )
+}
+
+export const useAuth = () => {
+  return useContext(AuthContext)
 }

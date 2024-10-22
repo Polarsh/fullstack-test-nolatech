@@ -10,7 +10,7 @@ const userNavigation = [
 ]
 
 export default function NavBar({ openSideBar }) {
-  const { currentUser } = useAuth()
+  const { user } = useAuth()
 
   return (
     <div>
@@ -40,7 +40,7 @@ export default function NavBar({ openSideBar }) {
                   <span
                     aria-hidden='true'
                     className='ml-4 text-sm font-semibold leading-6 text-gray-900'>
-                    {currentUser.email}
+                    {user ? user.email : 'Email error'}
                   </span>
                   <ChevronDownIcon
                     aria-hidden='true'
