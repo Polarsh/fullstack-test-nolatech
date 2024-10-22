@@ -5,6 +5,7 @@ import connectDB from "./config/db.js";
 
 import authRoutes from "./routes/auth.js";
 import employeesRoutes from "./routes/employees.js";
+import evaluationRoutes from "./routes/evaluations.js";
 
 // Config
 dotenv.config();
@@ -18,6 +19,7 @@ app.use(express.json());
 // Rutas
 app.use("/api/auth", authRoutes);
 app.use("/api/employees", employeesRoutes);
+app.use("/api/evaluations", evaluationRoutes);
 
 // Puerto del servidor
 const PORT = process.env.PORT || 5000;
