@@ -13,6 +13,16 @@ const evaluationTemplateSchema = new Schema({
       ],
     },
   ],
+  feedback: [
+    {
+      employeeId: {
+        type: Schema.Types.ObjectId,
+        ref: "Employee",
+      },
+      comment: { type: String, required: true },
+      submittedAt: { type: Date, default: Date.now },
+    },
+  ],
   createdAt: { type: Date, default: Date.now },
   updatedAt: { type: Date, default: Date.now },
 });
