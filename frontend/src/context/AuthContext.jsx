@@ -2,6 +2,7 @@ import { createContext, useContext, useEffect, useState } from 'react'
 
 import AuthServices from '../modules/auth/authServices'
 import { toast } from 'sonner'
+import { setAuthToken } from '../utils/httpHelper'
 
 const AuthContext = createContext()
 
@@ -12,6 +13,7 @@ export const AuthProvider = ({ children }) => {
   useEffect(() => {
     const token = localStorage.getItem('token')
     if (token) {
+      setAuthToken(token)
       const currentUser = AuthServices.getCurrentUser()
       setUser(currentUser)
     }
