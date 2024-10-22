@@ -85,8 +85,17 @@ export const loginUser = async (req, res) => {
       });
     }
 
+    const employee = await Employee.findOne({ email });
+
+    if (!employee) {
+      return res.status(400).json({
+        error: { message: "Empleado no encontrado", code: "USER_NOT_FOUND" },
+        data: null,
+      });
+    }
+
     const token = jwt.sign(
-      { email: user.email, role: user.role },
+      { email: user.email, role: user.role, employeeId: employee.id },
       process.env.JWT_SECRET,
       { expiresIn: "1h" }
     );
