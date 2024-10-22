@@ -17,7 +17,7 @@ export default function LogInView() {
     handleSubmit,
     formState: { errors },
   } = useForm({
-    defaultValues: { email: 'admin@dybsm98.com', password: 'nolatech' },
+    defaultValues: { email: 'admin@example.com', password: 'nolatech' },
     resolver: yupResolver(logInSchema),
   })
 
