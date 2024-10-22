@@ -43,6 +43,10 @@ export const registerUser = async (req, res) => {
 
     await newEmployee.save();
 
+    // Actualizar el usuario para asociarlo con el employee
+    newUser.employeeId = newEmployee._id; // Agregar el employeeId al usuario
+    await newUser.save();
+
     res.status(201).json({
       error: null,
       data: {
@@ -85,17 +89,13 @@ export const loginUser = async (req, res) => {
       });
     }
 
-    const employee = await Employee.findOne({ email });
-
-    if (!employee) {
-      return res.status(400).json({
-        error: { message: "Empleado no encontrado", code: "USER_NOT_FOUND" },
-        data: null,
-      });
-    }
-
     const token = jwt.sign(
-      { email: user.email, role: user.role, employeeId: employee.id },
+      {
+        email: user.email,
+        role: user.role,
+        userId: user.id,
+        employeeId: user.employeeId,
+      },
       process.env.JWT_SECRET,
       { expiresIn: "24h" }
     );
@@ -104,7 +104,7 @@ export const loginUser = async (req, res) => {
       name: user.name,
       email: user.email,
       role: user.role,
-      employeeId: employee.id,
+      employeeId: user.employeeId,
     };
 
     res.json({
