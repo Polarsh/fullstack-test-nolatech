@@ -46,11 +46,24 @@ class EvaluationTemplateServices {
     }
   }
 
-  // Obtener evaluaciones por empleado Id
+  // Obtener evaluaciones por empleado Id // todo
   async getEvaluationsByEmployeeId(employeeId) {
     try {
       const response = await httpHelper.get(
         `/api/evaluations/employee/${employeeId}`
+      )
+      return response.data.data
+    } catch (error) {
+      handleServiceError(error)
+    }
+  }
+
+  // Asignar evaluación a empleado // todo // funciona pero falta revisar
+  async assignEvaluationToEmployee(assignData) {
+    try {
+      const response = await httpHelper.post(
+        `/api/evaluations/assign`,
+        assignData
       )
       return response.data.data
     } catch (error) {

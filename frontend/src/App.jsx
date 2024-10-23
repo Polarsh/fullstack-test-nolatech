@@ -15,12 +15,16 @@ import Dashboard from './views/Dashboard'
 
 import LogInView from './views/Auth/LogIn'
 import LogOutView from './views/Auth/LogOut'
+
 import UserMenuPage from './views/Users/UserMenu'
 import AddUserPage from './views/Users/AddUser'
+
 import EvaluationMenuPage from './views/Evaluations/EvaluationMenu'
 import EditEvaluationPage from './views/Evaluations/EditEvaluation'
 import AddEvaluationPage from './views/Evaluations/AddEvaluation'
 import ViewEvaluationPage from './views/Evaluations/ViewEvaluation'
+import AsignEvaluationPage from './views/Users/AsignEvaluation'
+import ViewUserPage from './views/Users/ViewUser'
 
 function ScrollToTop() {
   const { pathname } = useLocation()
@@ -53,11 +57,14 @@ export default function App() {
                   <Route path='/' element={<PageLayout />}>
                     <Route path='dashboard' element={<Dashboard />} />
 
-                    <Route path='trabajadores' element={<UserMenuPage />} />
-                    <Route
-                      path='trabajadores/nuevo'
-                      element={<AddUserPage />}
-                    />
+                    <Route path='trabajadores'>
+                      <Route path='' element={<UserMenuPage />} />
+                      <Route path='nuevo' element={<AddUserPage />} />
+                      <Route
+                        path='ver/:employeeId'
+                        element={<ViewUserPage />}
+                      />
+                    </Route>
 
                     <Route path='plantillas-evaluacion'>
                       <Route path='' element={<EvaluationMenuPage />} />
@@ -72,15 +79,20 @@ export default function App() {
                       />
                     </Route>
 
+                    <Route
+                      path='asignar/:employeeId'
+                      element={<AsignEvaluationPage />}
+                    />
+
                     <Route path='evaluaciones' element={<Dashboard />} />
                   </Route>
 
                   {/* Cerrar sesión */}
                   <Route path='/cerrar-sesion' element={<LogOutView />} />
-                </Route>
 
-                {/* Página default */}
-                <Route path='*' element={<DefaultPage />} />
+                  {/* Página default */}
+                  <Route path='*' element={<DefaultPage />} />
+                </Route>
               </Route>
             </Routes>
           </EvaluationProvider>

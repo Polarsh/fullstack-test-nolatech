@@ -1,17 +1,21 @@
 import { createContext, useContext, useState, useEffect } from 'react'
 import UserServices from '../modules/users/userServices'
 import { toast } from 'sonner'
+import { useAuth } from './AuthContext'
 
 const UserContext = createContext()
 
 export const UserProvider = ({ children }) => {
+  const { user: currentUser } = useAuth()
+
+  const [user, setUser] = useState(null)
   const [users, setUsers] = useState([])
-  const [userDetails, setUserDetails] = useState(null)
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState(null)
 
   const loadUsers = async () => {
     try {
+      setUsers([])
       setLoading(true)
       const usersData = await UserServices.getAllUsers()
       setUsers(usersData)
@@ -26,14 +30,19 @@ export const UserProvider = ({ children }) => {
   }
 
   useEffect(() => {
-    loadUsers()
-  }, [])
+    if (currentUser) {
+      loadUsers()
+    }
+  }, [currentUser])
 
-  const fetchUserDetails = async userId => {
+  const fetchUserById = async userId => {
     try {
+      setUser(null)
       setLoading(true)
-      const userDetails = await UserServices.getUserbyId(userId)
-      setUserDetails(userDetails)
+
+      const user = await UserServices.getUserById(userId)
+
+      setUser(user)
       /*  toast.success('Detalles del usuario cargados correctamente') */
     } catch (err) {
       setError('Error al cargar los detalles del usuario.')
@@ -63,11 +72,11 @@ export const UserProvider = ({ children }) => {
   return (
     <UserContext.Provider
       value={{
+        user,
         users,
-        userDetails,
         loading,
         error,
-        fetchUserDetails,
+        fetchUserById,
         createUser,
       }}>
       {children}

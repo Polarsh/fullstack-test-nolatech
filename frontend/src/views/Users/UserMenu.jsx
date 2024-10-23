@@ -1,5 +1,9 @@
 import { useUsers } from '../../context/UserContext'
-import { PlusCircleIcon } from '@heroicons/react/20/solid'
+import {
+  EyeIcon,
+  PaperAirplaneIcon,
+  PlusCircleIcon,
+} from '@heroicons/react/20/solid'
 import { useNavigate } from 'react-router-dom'
 
 import Table from '../../shared/components/Table/Table'
@@ -19,7 +23,26 @@ export default function UserMenuPage() {
     { header: 'Rol', accessorKey: 'role' },
   ]
 
-  const actionItems = []
+  const navigateToAssign = user => {
+    navigate(`/asignar/${user._id}`)
+  }
+
+  const navigateToView = user => {
+    navigate(`/trabajadores/ver/${user._id}`)
+  }
+
+  const actionItems = [
+    {
+      label: 'Detalle',
+      icon: EyeIcon,
+      action: navigateToView,
+    },
+    {
+      label: 'Evaluar',
+      icon: PaperAirplaneIcon,
+      action: navigateToAssign,
+    },
+  ]
 
   if (loading) {
     return <>Cargando</>

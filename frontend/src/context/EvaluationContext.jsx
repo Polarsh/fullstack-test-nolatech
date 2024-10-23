@@ -1,33 +1,24 @@
-import { createContext, useContext, useEffect, useState } from 'react'
+import { createContext, useContext, useState } from 'react'
 import { toast } from 'sonner'
 
 import EvaluationTemplateServices from '../modules/evaluationTemplate/evaluationServices'
-import { useAuth } from './AuthContext'
 
 const EvaluationContext = createContext()
 
 export const EvaluationProvider = ({ children }) => {
-  const { user } = useAuth()
-
   const [evaluations, setEvaluations] = useState([])
   const [evaluation, setEvaluation] = useState(null)
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState(null)
 
-  useEffect(() => {
-    console.log('Entra')
-    if (user) {
-      fetchEvaluationTemplates()
-      console.log('Entra -----')
-    }
-  }, [user])
-
   // Función para obtener todas las plantillas de evaluación
   const fetchEvaluationTemplates = async () => {
+    setLoading(true)
+    setEvaluations([])
     try {
-      setLoading(true)
       const templates =
         await EvaluationTemplateServices.getAllEvaluationTemplates()
+
       setEvaluations(templates)
       /* toast.success('Plantillas de evaluación cargadas correctamente') */
     } catch (err) {
@@ -41,10 +32,12 @@ export const EvaluationProvider = ({ children }) => {
 
   // Función para obtener una plantilla de evaluación por ID
   const fetchEvaluationTemplateById = async templateId => {
+    setLoading(true)
+    setEvaluation(null)
     try {
-      setLoading(true)
       const template =
         await EvaluationTemplateServices.getEvaluationTemplateById(templateId)
+
       setEvaluation(template)
       /* toast.success('Plantilla de evaluación obtenida correctamente') */
     } catch (err) {
@@ -95,18 +88,41 @@ export const EvaluationProvider = ({ children }) => {
     }
   }
 
-  // Función para obtener las evaluaciones asignadas a un empleado por su ID
-  const fetchEvaluationsByEmployee = async employeeId => {
+  // Función para obtener las evaluaciones asignadas a un empleado por su ID // todo
+  const fetchEvaluationsByEmployeeId = async employeeId => {
+    setLoading(true)
+    setEvaluations([])
+
     try {
-      setLoading(true)
-      const employeeEvaluations =
+      const evaluations =
         await EvaluationTemplateServices.getEvaluationsByEmployeeId(employeeId)
-      setEvaluations(employeeEvaluations)
+
+      setEvaluations(evaluations)
       /* toast.success('Evaluaciones del empleado cargadas correctamente') */
     } catch (err) {
       setError('Error al obtener las evaluaciones del empleado.')
       toast.error('Error al obtener las evaluaciones del empleado')
       console.error(err)
+    } finally {
+      setLoading(false)
+    }
+  }
+
+  // todo
+  const assignEvalutionToEmployee = async evaluationData => {
+    try {
+      setLoading(true)
+
+      await EvaluationTemplateServices.assignEvaluationToEmployee(
+        evaluationData
+      )
+
+      toast.success('Plantilla de evaluación asignada correctamente')
+    } catch (err) {
+      setError('Error al asignar la plantilla de evaluación.')
+      toast.error(err.message)
+
+      throw new Error('')
     } finally {
       setLoading(false)
     }
@@ -121,7 +137,8 @@ export const EvaluationProvider = ({ children }) => {
         fetchEvaluationTemplateById,
         createEvaluationTemplate,
         updateEvaluationTemplate,
-        fetchEvaluationsByEmployee,
+        fetchEvaluationsByEmployeeId,
+        assignEvalutionToEmployee,
         loading,
         error,
       }}>

@@ -8,11 +8,16 @@ import {
   PencilSquareIcon,
   PlusCircleIcon,
 } from '@heroicons/react/20/solid'
+import { useEffect } from 'react'
 
 export default function EvaluationMenuPage() {
-  const { evaluations, loading } = useEvaluation()
+  const { evaluations, fetchEvaluationTemplates, loading } = useEvaluation()
 
   const navigate = useNavigate()
+
+  useEffect(() => {
+    fetchEvaluationTemplates()
+  }, [])
 
   const columns = [
     { header: 'Creador por', accessorKey: 'createdBy' },

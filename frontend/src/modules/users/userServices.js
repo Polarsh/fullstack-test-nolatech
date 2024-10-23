@@ -20,10 +20,10 @@ class UserServices {
     }
   }
 
-  async getUserbyId(userId) {
+  async getUserById(userId) {
     try {
       const response = await httpHelper.get(`/api/employees/${userId}`)
-      return response.data.data
+      return response.data.data.data
     } catch (error) {
       handleServiceError(error)
     }
