@@ -3,7 +3,11 @@ import { useEvaluation } from '../../context/EvaluationContext'
 import TitlePageComponent from '../../shared/components/TitlePage'
 import Table from '../../shared/components/Table/Table'
 import ButtonComponent, { ButtonStyle } from '../../shared/components/Button'
-import { PencilSquareIcon, PlusCircleIcon } from '@heroicons/react/20/solid'
+import {
+  EyeIcon,
+  PencilSquareIcon,
+  PlusCircleIcon,
+} from '@heroicons/react/20/solid'
 
 export default function EvaluationMenuPage() {
   const { evaluations, loading } = useEvaluation()
@@ -23,9 +27,11 @@ export default function EvaluationMenuPage() {
     },
   ]
 
-  const navigateToEdit = evaluation => {
-    console.log(evaluation)
+  const navigateToView = evaluation => {
+    navigate(`/plantillas-evaluacion/ver/${evaluation._id}`)
+  }
 
+  const navigateToEdit = evaluation => {
     navigate(`/plantillas-evaluacion/editar/${evaluation._id}`)
   }
 
@@ -34,6 +40,11 @@ export default function EvaluationMenuPage() {
   }
 
   const actionItems = [
+    {
+      label: 'Ver detalle',
+      icon: EyeIcon,
+      action: navigateToView,
+    },
     {
       label: 'Editar',
       icon: PencilSquareIcon,
@@ -48,8 +59,8 @@ export default function EvaluationMenuPage() {
   return (
     <div className=' space-y-6'>
       <TitlePageComponent
-        title='Trabajadores'
-        description='Una lista de todos los trabajadores, con su nombre, correo electrónico y rol.'
+        title='Plantillas de evaluación'
+        description='Una lista de todos las plantillas de evaluación'
       />
       <Table data={evaluations} columns={columns}>
         <Table.Header>

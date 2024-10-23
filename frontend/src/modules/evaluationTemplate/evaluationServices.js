@@ -16,7 +16,8 @@ class EvaluationTemplateServices {
   async getEvaluationTemplateById(templateId) {
     try {
       const response = await httpHelper.get(`/api/evaluations/${templateId}`)
-      return response.data.data
+
+      return response.data.data.evaluationTemplate
     } catch (error) {
       handleServiceError(error)
     }
@@ -45,7 +46,7 @@ class EvaluationTemplateServices {
     }
   }
 
-  // Obtener una evaluaciones por empleado Id
+  // Obtener evaluaciones por empleado Id
   async getEvaluationsByEmployeeId(employeeId) {
     try {
       const response = await httpHelper.get(
