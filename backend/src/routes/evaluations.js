@@ -27,7 +27,7 @@ router.get(
   checkIfEvaluationPending
 );
 
-// Crear una nueva evaluación
+// Crear una nueva template evaluación
 router.post(
   "",
   authenticateAndAuthorizeRoles("Admin", "Manager"),
@@ -35,7 +35,7 @@ router.post(
   createEvaluationTemplate
 );
 
-// Obtener todas las evaluacioens
+// Obtener todas las evaluacioens templates
 router.get(
   "",
   authenticateAndAuthorizeRoles("Admin", "Manager"),
