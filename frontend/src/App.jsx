@@ -20,6 +20,7 @@ import AddUserPage from './views/Users/AddUser'
 import EvaluationMenuPage from './views/Evaluations/EvaluationMenu'
 import EditEvaluationPage from './views/Evaluations/EditEvaluation'
 import AddEvaluationPage from './views/Evaluations/AddEvaluation'
+import ViewEvaluationPage from './views/Evaluations/ViewEvaluation'
 
 function ScrollToTop() {
   const { pathname } = useLocation()
@@ -61,6 +62,10 @@ export default function App() {
                     <Route path='plantillas-evaluacion'>
                       <Route path='' element={<EvaluationMenuPage />} />
                       <Route path='nuevo' element={<AddEvaluationPage />} />
+                      <Route
+                        path='ver/:evaluationId'
+                        element={<ViewEvaluationPage />}
+                      />
                       <Route
                         path='editar/:evaluationId'
                         element={<EditEvaluationPage />}
