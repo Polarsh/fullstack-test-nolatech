@@ -5,7 +5,7 @@ const evaluationTemplateSchema = new Schema({
   title: { type: String, required: true },
   categories: [
     {
-      name: { type: String, required: true },
+      categoryName: { type: String, required: true },
       questions: [
         {
           question: { type: String, required: true },

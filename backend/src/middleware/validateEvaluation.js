@@ -10,7 +10,7 @@ export const validateEvaluationTemplate = [
     .custom((categories) => {
       for (const category of categories) {
         // Validar el nombre de cada categoría
-        if (!category.name || category.name.trim() === "") {
+        if (!category.categoryName || category.categoryName.trim() === "") {
           throw new Error("Cada categoría debe tener un nombre.");
         }
         // Validar que cada categoría tenga preguntas

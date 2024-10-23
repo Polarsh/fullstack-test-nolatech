@@ -167,7 +167,7 @@ export const assignEvaluationToEmployee = async (req, res) => {
         evaluateeId, // El evaluado
         evaluationTemplateId,
         responses: template.categories.map((category) => ({
-          categoryName: category.name,
+          categoryName: category.categoryName,
           questions: category.questions.map((q) => ({
             question: q.question,
             answer: null, // Respuesta vacía al principio
