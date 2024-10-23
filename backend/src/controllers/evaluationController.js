@@ -158,6 +158,18 @@ export const assignEvaluationToEmployee = async (req, res) => {
       });
     }
 
+    // Verificar que el evaluado
+    const evaluation = await AssignedEvaluation.findOne({
+      evaluateeId,
+      evaluationTemplateId,
+    });
+    if (evaluation) {
+      return res.status(404).json({
+        error: { message: "Empleado ya ha sido evaluado con esta plantilla." },
+        data: null,
+      });
+    }
+
     // Asignar la evaluación a cada empleado que debe responderla
     const assignments = [];
 
@@ -208,20 +220,44 @@ export const getEvaluationsByEmployeeId = async (req, res) => {
     // Buscar todas las evaluaciones asignadas a este empleado (evaluateeId)
     const evaluations = await AssignedEvaluation.find({
       evaluateeId: evaluateeId,
-    });
+    }).populate("evaluationTemplateId", "title");
 
+    // Si no hay evaluaciones, simplemente devuelve un array vacío
     if (evaluations.length === 0) {
-      return res.status(404).json({
-        error: {
-          message: "No se encontraron evaluaciones para este empleado.",
-        },
-        data: null,
+      return res.status(200).json({
+        error: null,
+        data: [],
+        message: "Este empleado no tiene evaluaciones asignadas.",
       });
     }
 
+    // Agrupar evaluaciones por evaluationTemplateId
+    const groupedEvaluations = evaluations.reduce((acc, evaluation) => {
+      const { evaluationTemplateId } = evaluation;
+
+      // Si no existe ya este templateId en el acumulador, lo añadimos
+      if (!acc[evaluationTemplateId._id]) {
+        acc[evaluationTemplateId._id] = {
+          evaluationTemplateId: evaluationTemplateId._id,
+          title: evaluationTemplateId.title,
+          categories: evaluationTemplateId.categories,
+          assignedAt: evaluation.assignedAt,
+          evaluations: [], // Aquí guardamos las evaluaciones individuales si es necesario
+        };
+      }
+
+      // Añadir esta evaluación a la lista del template correspondiente
+      acc[evaluationTemplateId._id].evaluations.push(evaluation);
+
+      return acc;
+    }, {});
+
+    // Convertir el objeto en un array para devolverlo en el formato deseado
+    const result = Object.values(groupedEvaluations);
+
     res.status(200).json({
       error: null,
-      data: evaluations,
+      data: result,
     });
   } catch (error) {
     res.status(500).json({
