@@ -4,6 +4,7 @@ import { Navigate, Route, Routes, useLocation } from 'react-router-dom'
 import { AppProvider } from './context/AppContext'
 import { AuthProvider } from './context/AuthContext'
 import { UserProvider } from './context/UserContext'
+import { EvaluationProvider } from './context/EvaluationContext'
 
 import ProtectedRoute from './routes/ProtectedRoute'
 
@@ -16,6 +17,9 @@ import LogInView from './views/Auth/LogIn'
 import LogOutView from './views/Auth/LogOut'
 import UserMenuPage from './views/Users/UserMenu'
 import AddUserPage from './views/Users/AddUser'
+import EvaluationMenuPage from './views/Evaluations/EvaluationMenu'
+import EditEvaluationPage from './views/Evaluations/EditEvaluation'
+import AddEvaluationPage from './views/Evaluations/AddEvaluation'
 
 function ScrollToTop() {
   const { pathname } = useLocation()
@@ -32,34 +36,49 @@ export default function App() {
     <AppProvider>
       <AuthProvider>
         <UserProvider>
-          <ScrollToTop />
-          <Routes>
-            <Route>
-              <Route path='/' element={<Navigate to='/dashboard' replace />} />
-              <Route path='/iniciar-sesion' element={<LogInView />} />
+          <EvaluationProvider>
+            <ScrollToTop />
+            <Routes>
+              <Route>
+                <Route
+                  path='/'
+                  element={<Navigate to='/dashboard' replace />}
+                />
+                <Route path='/iniciar-sesion' element={<LogInView />} />
 
-              {/* Protected */}
-              <Route
-                element={<ProtectedRoute redirectPath={'/iniciar-sesion'} />}>
-                <Route path='/' element={<PageLayout />}>
-                  <Route path='dashboard' element={<Dashboard />} />
+                {/* Protected */}
+                <Route
+                  element={<ProtectedRoute redirectPath={'/iniciar-sesion'} />}>
+                  <Route path='/' element={<PageLayout />}>
+                    <Route path='dashboard' element={<Dashboard />} />
 
-                  <Route path='trabajadores' element={<UserMenuPage />} />
-                  <Route path='trabajadores/nuevo' element={<AddUserPage />} />
+                    <Route path='trabajadores' element={<UserMenuPage />} />
+                    <Route
+                      path='trabajadores/nuevo'
+                      element={<AddUserPage />}
+                    />
 
-                  <Route path='plantillas-evaluacion' element={<Dashboard />} />
+                    <Route path='plantillas-evaluacion'>
+                      <Route path='' element={<EvaluationMenuPage />} />
+                      <Route path='nuevo' element={<AddEvaluationPage />} />
+                      <Route
+                        path='editar/:evaluationId'
+                        element={<EditEvaluationPage />}
+                      />
+                    </Route>
 
-                  <Route path='evaluaciones' element={<Dashboard />} />
+                    <Route path='evaluaciones' element={<Dashboard />} />
+                  </Route>
+
+                  {/* Cerrar sesión */}
+                  <Route path='/cerrar-sesion' element={<LogOutView />} />
                 </Route>
 
-                {/* Cerrar sesión */}
-                <Route path='/cerrar-sesion' element={<LogOutView />} />
+                {/* Página default */}
+                <Route path='*' element={<DefaultPage />} />
               </Route>
-
-              {/* Página default */}
-              <Route path='*' element={<DefaultPage />} />
-            </Route>
-          </Routes>
+            </Routes>
+          </EvaluationProvider>
         </UserProvider>
       </AuthProvider>
     </AppProvider>

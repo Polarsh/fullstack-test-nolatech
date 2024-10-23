@@ -2,7 +2,7 @@ import { flexRender } from '@tanstack/react-table'
 import {
   ChevronDownIcon,
   ChevronUpDownIcon,
-  ChevronUpIcon
+  ChevronUpIcon,
 } from '@heroicons/react/20/solid'
 
 export default function TableBody({ table, actionItems }) {
@@ -86,7 +86,7 @@ export default function TableBody({ table, actionItems }) {
                             <button
                               key={index}
                               onClick={() => {
-                                item.action(row.original.id)
+                                item.action(row.original)
                               }}
                               className={`group flex items-center p-2 text-sm text-gray-700 data-[focus]:bg-gray-100 data-[focus]:text-gray-900 ${index > 0 ? 'hidden sm:flex' : 'flex'}`}>
                               <item.icon

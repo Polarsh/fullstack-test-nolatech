@@ -4,10 +4,6 @@ import httpHelper from '../../utils/httpHelper'
 class UserServices {
   async createUser(user) {
     try {
-      console.log(
-        'createUser:',
-        httpHelper.defaults.headers.common.Authorization
-      )
       const response = await httpHelper.post('/api/auth/register', user)
       return response.data.data
     } catch (error) {
