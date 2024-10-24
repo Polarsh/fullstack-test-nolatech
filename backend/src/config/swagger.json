@@ -1,0 +1,1376 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "API de Autenticación",
+    "version": "1.0.0",
+    "description": "Rutas para la autenticación de usuarios"
+  },
+  "tags": [
+    {
+      "name": "Auth",
+      "description": "Rutas para la autenticación de usuarios"
+    },
+    {
+      "name": "Feedback",
+      "description": "Rutas para gestionar los feedbacks en las plantillas de evaluación"
+    },
+    {
+      "name": "Reportes",
+      "description": "Rutas para gestionar reportes de evaluaciones"
+    },
+    {
+      "name": "Employee",
+      "description": "API para la gestión de empleados"
+    }
+  ],
+  "paths": {
+    "/auth/register": {
+      "post": {
+        "summary": "Registrar un nuevo usuario (solo Admin)",
+        "tags": ["Auth"],
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string",
+                    "example": "Juan Pérez"
+                  },
+                  "email": {
+                    "type": "string",
+                    "example": "juan@example.com"
+                  },
+                  "position": {
+                    "type": "string",
+                    "example": "Gerente"
+                  },
+                  "phone": {
+                    "type": "string",
+                    "example": "987654321"
+                  },
+                  "department": {
+                    "type": "string",
+                    "example": "Ventas"
+                  },
+                  "role": {
+                    "type": "string",
+                    "enum": ["Admin", "Manager", "Employee"],
+                    "example": "Employee"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Usuario registrado correctamente",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "null"
+                    },
+                    "data": {
+                      "type": "object",
+                      "properties": {
+                        "message": {
+                          "type": "string",
+                          "example": "Usuario creado correctamente"
+                        },
+                        "user": {
+                          "type": "object",
+                          "properties": {
+                            "name": {
+                              "type": "string",
+                              "example": "Juan Pérez"
+                            },
+                            "email": {
+                              "type": "string",
+                              "example": "juan@example.com"
+                            },
+                            "role": {
+                              "type": "string",
+                              "example": "Employee"
+                            }
+                          }
+                        },
+                        "employee": {
+                          "type": "object",
+                          "description": "Datos del empleado creado"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "El usuario ya existe",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "object",
+                      "properties": {
+                        "message": {
+                          "type": "string",
+                          "example": "El usuario ya existe"
+                        },
+                        "code": {
+                          "type": "string",
+                          "example": "USER_EXISTS"
+                        }
+                      }
+                    },
+                    "data": {
+                      "type": "null"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Error interno del servidor",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "object",
+                      "properties": {
+                        "message": {
+                          "type": "string",
+                          "example": "Error al registrar usuario y empleado"
+                        },
+                        "details": {
+                          "type": "string"
+                        }
+                      }
+                    },
+                    "data": {
+                      "type": "null"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/auth/login": {
+      "post": {
+        "summary": "Iniciar sesión",
+        "tags": ["Auth"],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "email": {
+                    "type": "string",
+                    "example": "juan@example.com"
+                  },
+                  "password": {
+                    "type": "string",
+                    "example": "nolatech"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Inicio de sesión exitoso",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "null"
+                    },
+                    "data": {
+                      "type": "object",
+                      "properties": {
+                        "token": {
+                          "type": "string"
+                        },
+                        "message": {
+                          "type": "string",
+                          "example": "Inicio de sesión exitoso"
+                        },
+                        "user": {
+                          "type": "object",
+                          "properties": {
+                            "name": {
+                              "type": "string",
+                              "example": "Juan Pérez"
+                            },
+                            "email": {
+                              "type": "string",
+                              "example": "juan@example.com"
+                            },
+                            "role": {
+                              "type": "string",
+                              "example": "Employee"
+                            },
+                            "employeeId": {
+                              "type": "string",
+                              "example": "61d9b7d8f84e101f8e3f221a"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Contraseña incorrecta",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "object",
+                      "properties": {
+                        "message": {
+                          "type": "string",
+                          "example": "Contraseña incorrecta"
+                        },
+                        "code": {
+                          "type": "string",
+                          "example": "INVALID_PASSWORD"
+                        }
+                      }
+                    },
+                    "data": {
+                      "type": "null"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Usuario no encontrado",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "object",
+                      "properties": {
+                        "message": {
+                          "type": "string",
+                          "example": "Usuario no encontrado"
+                        },
+                        "code": {
+                          "type": "string",
+                          "example": "USER_NOT_FOUND"
+                        }
+                      }
+                    },
+                    "data": {
+                      "type": "null"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Error interno del servidor",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "object",
+                      "properties": {
+                        "message": {
+                          "type": "string",
+                          "example": "Error al iniciar sesión"
+                        },
+                        "details": {
+                          "type": "string"
+                        }
+                      }
+                    },
+                    "data": {
+                      "type": "null"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/feedback": {
+      "post": {
+        "summary": "Añadir un feedback a una plantilla de evaluación",
+        "tags": ["Feedback"],
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "templateId": {
+                    "type": "string",
+                    "example": "61d9b7d8f84e101f8e3f221a"
+                  },
+                  "comment": {
+                    "type": "string",
+                    "example": "Este es un comentario de feedback sobre la plantilla de evaluación."
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Feedback enviado correctamente sobre la plantilla.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "null"
+                    },
+                    "data": {
+                      "type": "object",
+                      "properties": {
+                        "message": {
+                          "type": "string",
+                          "example": "Feedback enviado correctamente sobre la plantilla."
+                        },
+                        "feedback": {
+                          "type": "object",
+                          "properties": {
+                            "employeeId": {
+                              "type": "string",
+                              "example": "61d9b7d8f84e101f8e3f221a"
+                            },
+                            "comment": {
+                              "type": "string",
+                              "example": "Este es un comentario de feedback sobre la plantilla de evaluación."
+                            },
+                            "submittedAt": {
+                              "type": "string",
+                              "example": "2024-10-23T22:46:04.711Z"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Plantilla de evaluación no encontrada",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "object",
+                      "properties": {
+                        "message": {
+                          "type": "string",
+                          "example": "Plantilla de evaluación no encontrada."
+                        }
+                      }
+                    },
+                    "data": {
+                      "type": "null"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Error interno del servidor",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "object",
+                      "properties": {
+                        "message": {
+                          "type": "string",
+                          "example": "Error al enviar el feedback."
+                        },
+                        "details": {
+                          "type": "string"
+                        }
+                      }
+                    },
+                    "data": {
+                      "type": "null"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/report/employee/{id}": {
+      "get": {
+        "summary": "Obtener reporte de evaluaciones completadas de un empleado",
+        "tags": ["Reportes"],
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "schema": {
+              "type": "string"
+            },
+            "required": true,
+            "description": "ID del empleado",
+            "example": "61d9b7d8f84e101f8e3f221a"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Reporte generado exitosamente",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "null"
+                    },
+                    "data": {
+                      "type": "object",
+                      "properties": {
+                        "message": {
+                          "type": "string",
+                          "example": "Reporte generado exitosamente."
+                        },
+                        "data": {
+                          "type": "array",
+                          "items": {
+                            "type": "object",
+                            "properties": {
+                              "templateTitle": {
+                                "type": "string",
+                                "example": "Evaluación de Habilidades de Comunicación"
+                              },
+                              "categories": {
+                                "type": "array",
+                                "items": {
+                                  "type": "object",
+                                  "properties": {
+                                    "categoryName": {
+                                      "type": "string",
+                                      "example": "Comunicación Verbal"
+                                    },
+                                    "categoryAverage": {
+                                      "type": "string",
+                                      "example": "4.00"
+                                    },
+                                    "questions": {
+                                      "type": "array",
+                                      "items": {
+                                        "type": "object",
+                                        "properties": {
+                                          "question": {
+                                            "type": "string",
+                                            "example": "¿Habla de forma clara?"
+                                          },
+                                          "averageScore": {
+                                            "type": "string",
+                                            "example": "3.50"
+                                          },
+                                          "responses": {
+                                            "type": "array",
+                                            "items": {
+                                              "type": "number",
+                                              "example": 5
+                                            }
+                                          }
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "No se encontraron evaluaciones completadas para el empleado",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "object",
+                      "properties": {
+                        "message": {
+                          "type": "string",
+                          "example": "No se encontraron evaluaciones completadas para este empleado."
+                        }
+                      }
+                    },
+                    "data": {
+                      "type": "null"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Error al generar el reporte",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "object",
+                      "properties": {
+                        "message": {
+                          "type": "string",
+                          "example": "Error al generar el reporte."
+                        },
+                        "details": {
+                          "type": "string",
+                          "example": "Detalles del error."
+                        }
+                      }
+                    },
+                    "data": {
+                      "type": "null"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/employees": {
+      "get": {
+        "summary": "Obtener lista de todos los empleados",
+        "tags": ["Employee"],
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Lista de empleados obtenida correctamente",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Employee"
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "No autorizado (token inválido o faltante)"
+          },
+          "500": {
+            "description": "Error al obtener la lista de empleados"
+          }
+        }
+      }
+    },
+    "/employees/{id}": {
+      "get": {
+        "summary": "Obtener un empleado por su ID",
+        "tags": ["Employee"],
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "schema": {
+              "type": "string"
+            },
+            "required": true,
+            "description": "ID del empleado a buscar"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Información del empleado obtenida correctamente",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Employee"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Empleado no encontrado"
+          },
+          "401": {
+            "description": "No autorizado (token inválido o faltante)"
+          },
+          "500": {
+            "description": "Error al obtener el empleado"
+          }
+        }
+      }
+    },
+
+    "/evaluation/assigned": {
+      "get": {
+        "summary": "Obtener todas las evaluaciones asignadas",
+        "tags": ["Evaluaciones"],
+        "security": [{ "BearerAuth": [] }],
+        "responses": {
+          "200": {
+            "description": "Lista de evaluaciones asignadas",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "_id": {
+                        "type": "string",
+                        "description": "ID de la evaluación"
+                      },
+                      "evaluatorId": {
+                        "type": "string",
+                        "description": "ID del evaluador"
+                      },
+                      "evaluateeId": {
+                        "type": "string",
+                        "description": "ID del evaluado"
+                      },
+                      "evaluationTemplateId": {
+                        "type": "string",
+                        "description": "ID de la plantilla de evaluación"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Error al obtener las evaluaciones asignadas"
+          }
+        }
+      }
+    },
+    "/evaluation": {
+      "post": {
+        "summary": "Crear una nueva plantilla de evaluación",
+        "tags": ["Evaluaciones"],
+        "security": [{ "BearerAuth": [] }],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": ["title", "categories"],
+                "properties": {
+                  "title": {
+                    "type": "string",
+                    "example": "Evaluación de Habilidades de Comunicación"
+                  },
+                  "categories": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "categoryName": {
+                          "type": "string",
+                          "example": "Comunicación Verbal"
+                        },
+                        "questions": {
+                          "type": "array",
+                          "items": {
+                            "type": "object",
+                            "properties": {
+                              "question": {
+                                "type": "string",
+                                "example": "¿Habla de forma clara?"
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Plantilla de evaluación creada exitosamente.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": { "type": "null" },
+                    "data": {
+                      "type": "object",
+                      "properties": {
+                        "message": {
+                          "type": "string",
+                          "example": "Plantilla de evaluación creada exitosamente."
+                        },
+                        "evaluationTemplate": {
+                          "$ref": "#/components/schemas/EvaluationTemplate"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "500": { "description": "Error al crear la plantilla de evaluación." }
+        }
+      },
+      "get": {
+        "summary": "Obtener todas las plantillas de evaluación",
+        "tags": ["Evaluaciones"],
+        "security": [{ "BearerAuth": [] }],
+        "responses": {
+          "200": {
+            "description": "Lista de plantillas de evaluación",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": { "$ref": "#/components/schemas/EvaluationTemplate" }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "No se encontraron plantillas de evaluación."
+          },
+          "500": {
+            "description": "Error al obtener las plantillas de evaluación."
+          }
+        }
+      }
+    },
+    "/evaluation/{id}": {
+      "put": {
+        "summary": "Actualizar una evaluación por ID",
+        "tags": ["Evaluaciones"],
+        "security": [{ "BearerAuth": [] }],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "schema": { "type": "string" },
+            "required": true,
+            "description": "ID de la evaluación a actualizar"
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "title": {
+                    "type": "string",
+                    "description": "Título de la evaluación"
+                  },
+                  "categories": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "categoryName": { "type": "string" }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": { "description": "Evaluación actualizada exitosamente" },
+          "404": { "description": "Plantilla de evaluación no encontrada" },
+          "500": { "description": "Error al actualizar la evaluación" }
+        }
+      },
+      "get": {
+        "summary": "Obtener una plantilla de evaluación por ID",
+        "tags": ["Evaluaciones"],
+        "security": [{ "BearerAuth": [] }],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "schema": { "type": "string" },
+            "required": true,
+            "description": "ID de la plantilla de evaluación",
+            "example": "61d9b7d8f84e101f8e3f221a"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Plantilla de evaluación encontrada.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": { "type": "null" },
+                    "data": {
+                      "type": "object",
+                      "properties": {
+                        "message": {
+                          "type": "string",
+                          "example": "Plantilla de evaluación encontrada."
+                        },
+                        "evaluationTemplate": {
+                          "$ref": "#/components/schemas/EvaluationTemplate"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "404": { "description": "Plantilla de evaluación no encontrada." },
+          "500": {
+            "description": "Error al obtener la plantilla de evaluación."
+          }
+        }
+      }
+    },
+    "/evaluation/assign": {
+      "post": {
+        "summary": "Asignar una plantilla de evaluación a un empleado",
+        "tags": ["Evaluaciones"],
+        "security": [{ "BearerAuth": [] }],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "evaluateeId",
+                  "evaluationTemplateId",
+                  "evaluatorIds"
+                ],
+                "properties": {
+                  "evaluateeId": {
+                    "type": "string",
+                    "example": "61d9b7d8f84e101f8e3f221a"
+                  },
+                  "evaluationTemplateId": {
+                    "type": "string",
+                    "example": "61d9b7d8f84e101f8e3f221b"
+                  },
+                  "evaluatorIds": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "example": "61d9b7d8f84e101f8e3f221c"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Evaluación asignada al empleado exitosamente.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": { "type": "null" },
+                    "data": {
+                      "type": "object",
+                      "properties": {
+                        "message": {
+                          "type": "string",
+                          "example": "Evaluación asignada al empleado exitosamente."
+                        },
+                        "assignments": {
+                          "type": "array",
+                          "items": {
+                            "$ref": "#/components/schemas/AssignedEvaluation"
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "500": { "description": "Error al asignar la evaluación." }
+        }
+      }
+    },
+    "/evaluation/complete": {
+      "post": {
+        "summary": "Completar una evaluación",
+        "tags": ["Evaluaciones"],
+        "security": [{ "BearerAuth": [] }],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": ["evaluationId", "responses"],
+                "properties": {
+                  "evaluationId": {
+                    "type": "string",
+                    "example": "61d9b7d8f84e101f8e3f221c"
+                  },
+                  "responses": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "categoryName": {
+                          "type": "string",
+                          "example": "Comunicación Verbal"
+                        },
+                        "questions": {
+                          "type": "array",
+                          "items": {
+                            "type": "object",
+                            "properties": {
+                              "question": {
+                                "type": "string",
+                                "example": "¿Habla de forma clara?"
+                              },
+                              "answer": {
+                                "type": "number",
+                                "example": 5
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Evaluación completada exitosamente.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": { "type": "null" },
+                    "data": {
+                      "type": "object",
+                      "properties": {
+                        "message": {
+                          "type": "string",
+                          "example": "Evaluación completada exitosamente."
+                        },
+                        "evaluation": {
+                          "$ref": "#/components/schemas/AssignedEvaluation"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Error al completar la evaluación."
+          }
+        }
+      }
+    },
+
+    "/evaluation/employee/{id}": {
+      "get": {
+        "summary": "Obtener evaluaciones asignadas a un empleado",
+        "tags": ["Evaluaciones"],
+        "security": [{ "BearerAuth": [] }],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "ID del empleado"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Lista de evaluaciones asignadas al empleado",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string",
+                      "nullable": true
+                    },
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "_id": {
+                            "type": "string",
+                            "description": "ID de la evaluación"
+                          },
+                          "evaluationTemplateId": {
+                            "type": "string",
+                            "description": "ID de la plantilla de evaluación"
+                          },
+                          "evaluatorId": {
+                            "type": "string",
+                            "description": "ID del evaluador"
+                          },
+                          "completed": {
+                            "type": "boolean",
+                            "description": "Si la evaluación ha sido completada"
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Evaluaciones no encontradas para el empleado"
+          },
+          "500": {
+            "description": "Error al obtener las evaluaciones"
+          }
+        }
+      }
+    },
+
+    "/evaluation/evaluator/{id}": {
+      "get": {
+        "summary": "Obtener evaluaciones asignadas para un evaluador",
+        "tags": ["Evaluaciones"],
+        "security": [{ "BearerAuth": [] }],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "ID del evaluador (employeeId)"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Lista de evaluaciones asignadas para el evaluador",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string",
+                      "nullable": true
+                    },
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "_id": {
+                            "type": "string",
+                            "description": "ID de la evaluación"
+                          },
+                          "evaluationTemplateId": {
+                            "type": "string",
+                            "description": "ID de la plantilla de evaluación"
+                          },
+                          "evaluateeId": {
+                            "type": "string",
+                            "description": "ID del evaluado"
+                          },
+                          "completed": {
+                            "type": "boolean",
+                            "description": "Si la evaluación ha sido completada"
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Evaluaciones no encontradas para el evaluador"
+          },
+          "500": {
+            "description": "Error al obtener las evaluaciones"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "User": {
+        "type": "object",
+        "required": ["name", "email", "password", "role"],
+        "properties": {
+          "_id": {
+            "type": "string",
+            "description": "ID del usuario"
+          },
+          "name": {
+            "type": "string",
+            "description": "Nombre completo del usuario"
+          },
+          "email": {
+            "type": "string",
+            "description": "Correo electrónico único del usuario"
+          },
+          "password": {
+            "type": "string",
+            "description": "Contraseña encriptada del usuario"
+          },
+          "role": {
+            "type": "string",
+            "enum": ["Admin", "Manager", "Employee"],
+            "description": "Rol del usuario en el sistema"
+          },
+          "employeeId": {
+            "type": "string",
+            "description": "ID del empleado relacionado con este usuario"
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "date-time",
+            "description": "Fecha de creación del usuario"
+          },
+          "updatedAt": {
+            "type": "string",
+            "format": "date-time",
+            "description": "Última fecha de actualización del usuario"
+          }
+        }
+      },
+      "Employee": {
+        "type": "object",
+        "properties": {
+          "_id": {
+            "type": "string",
+            "description": "ID del empleado"
+          },
+          "name": {
+            "type": "string",
+            "description": "Nombre del empleado"
+          },
+          "email": {
+            "type": "string",
+            "description": "Correo electrónico del empleado"
+          },
+          "role": {
+            "type": "string",
+            "enum": ["Admin", "Manager", "Employee"],
+            "description": "Rol del empleado (Admin, Manager, Employee)"
+          },
+          "phone": {
+            "type": "string",
+            "description": "Número de teléfono del empleado"
+          },
+          "position": {
+            "type": "string",
+            "description": "Posición del empleado"
+          },
+          "department": {
+            "type": "string",
+            "description": "Departamento del empleado"
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "date-time",
+            "description": "Fecha de creación del empleado"
+          },
+          "updatedAt": {
+            "type": "string",
+            "format": "date-time",
+            "description": "Fecha de última actualización del empleado"
+          }
+        }
+      },
+      "EvaluationTemplate": {
+        "type": "object",
+        "required": ["createdBy", "title", "categories"],
+        "properties": {
+          "_id": {
+            "type": "string",
+            "description": "ID de la plantilla de evaluación"
+          },
+          "createdBy": {
+            "type": "string",
+            "description": "Email del usuario que creó la plantilla"
+          },
+          "title": {
+            "type": "string",
+            "description": "Título de la plantilla de evaluación"
+          },
+          "categories": {
+            "type": "array",
+            "description": "Lista de categorías dentro de la plantilla",
+            "items": {
+              "type": "object",
+              "properties": {
+                "categoryName": {
+                  "type": "string",
+                  "description": "Nombre de la categoría"
+                },
+                "questions": {
+                  "type": "array",
+                  "description": "Preguntas dentro de la categoría",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "question": {
+                        "type": "string",
+                        "description": "Pregunta que se hará en la evaluación"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "feedback": {
+            "type": "array",
+            "description": "Lista de feedbacks proporcionados por empleados sobre la plantilla",
+            "items": {
+              "type": "object",
+              "properties": {
+                "employeeId": {
+                  "type": "string",
+                  "description": "ID del empleado que envió el feedback"
+                },
+                "comment": {
+                  "type": "string",
+                  "description": "Comentario del feedback"
+                },
+                "submittedAt": {
+                  "type": "string",
+                  "format": "date-time",
+                  "description": "Fecha en que se envió el feedback"
+                }
+              }
+            }
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "date-time",
+            "description": "Fecha de creación de la plantilla de evaluación"
+          },
+          "updatedAt": {
+            "type": "string",
+            "format": "date-time",
+            "description": "Última fecha de actualización de la plantilla"
+          }
+        }
+      }
+    }
+  }
+}

@@ -3,6 +3,7 @@ import dotenv from "dotenv";
 import cors from "cors";
 
 import connectDB from "./config/db.js";
+import swaggerConfig from "./config/swagger.js";
 
 import authRoutes from "./routes/auth.js";
 import employeesRoutes from "./routes/employees.js";
@@ -15,6 +16,8 @@ const app = express();
 // Config
 dotenv.config();
 connectDB();
+
+swaggerConfig(app);
 
 // Configurar CORS
 app.use(
@@ -49,5 +52,6 @@ app.use("/api/reports", reportRoutes);
 const PORT = process.env.PORT || 5000;
 
 app.listen(PORT, () => {
-  console.log(`Servidor corriendo en el puerto http://localhost:${PORT}`);
+  console.log(`Servidor corriendo en http://localhost:${PORT}`);
+  console.log(`Swagger ejecutandose en http://localhost:${PORT}/api-docs`);
 });
