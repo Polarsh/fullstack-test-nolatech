@@ -1,0 +1,1202 @@
+[{
+  "_id": {
+    "$oid": "6719ae9e4f5d15a7d1f2de2a"
+  },
+  "evaluatorId": {
+    "$oid": "6718359fa8d6f9b9e514e25a"
+  },
+  "evaluateeId": {
+    "$oid": "67183665a8d6f9b9e514e26e"
+  },
+  "evaluationTemplateId": {
+    "$oid": "671736f7a7aa4a60864b191f"
+  },
+  "responses": [
+    {
+      "categoryName": "Comunicación Verbal",
+      "questions": [
+        {
+          "question": "¿Habla de forma clara?",
+          "answer": 5,
+          "_id": {
+            "$oid": "6719aeaa4f5d15a7d1f2de6c"
+          }
+        },
+        {
+          "question": "¿Usa un tono adecuado?",
+          "answer": 5,
+          "_id": {
+            "$oid": "6719aeaa4f5d15a7d1f2de6d"
+          }
+        }
+      ],
+      "_id": {
+        "$oid": "6719aeaa4f5d15a7d1f2de6b"
+      }
+    },
+    {
+      "categoryName": "Escucha Activa",
+      "questions": [
+        {
+          "question": "¿Escucha sin interrumpir?",
+          "answer": 5,
+          "_id": {
+            "$oid": "6719aeaa4f5d15a7d1f2de6f"
+          }
+        },
+        {
+          "question": "¿Hace preguntas pertinentes?",
+          "answer": 5,
+          "_id": {
+            "$oid": "6719aeaa4f5d15a7d1f2de70"
+          }
+        }
+      ],
+      "_id": {
+        "$oid": "6719aeaa4f5d15a7d1f2de6e"
+      }
+    }
+  ],
+  "completed": true,
+  "assignedAt": {
+    "$date": "2024-10-24T02:19:10.358Z"
+  },
+  "__v": 1,
+  "completedAt": {
+    "$date": "2024-10-24T02:19:22.054Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "6719ae9e4f5d15a7d1f2de32"
+  },
+  "evaluatorId": {
+    "$oid": "67183665a8d6f9b9e514e26e"
+  },
+  "evaluateeId": {
+    "$oid": "67183665a8d6f9b9e514e26e"
+  },
+  "evaluationTemplateId": {
+    "$oid": "671736f7a7aa4a60864b191f"
+  },
+  "responses": [
+    {
+      "categoryName": "Comunicación Verbal",
+      "questions": [
+        {
+          "question": "¿Habla de forma clara?",
+          "answer": null,
+          "_id": {
+            "$oid": "6719ae9e4f5d15a7d1f2de34"
+          }
+        },
+        {
+          "question": "¿Usa un tono adecuado?",
+          "answer": null,
+          "_id": {
+            "$oid": "6719ae9e4f5d15a7d1f2de35"
+          }
+        }
+      ],
+      "_id": {
+        "$oid": "6719ae9e4f5d15a7d1f2de33"
+      }
+    },
+    {
+      "categoryName": "Escucha Activa",
+      "questions": [
+        {
+          "question": "¿Escucha sin interrumpir?",
+          "answer": null,
+          "_id": {
+            "$oid": "6719ae9e4f5d15a7d1f2de37"
+          }
+        },
+        {
+          "question": "¿Hace preguntas pertinentes?",
+          "answer": null,
+          "_id": {
+            "$oid": "6719ae9e4f5d15a7d1f2de38"
+          }
+        }
+      ],
+      "_id": {
+        "$oid": "6719ae9e4f5d15a7d1f2de36"
+      }
+    }
+  ],
+  "completed": false,
+  "assignedAt": {
+    "$date": "2024-10-24T02:19:10.362Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6719ae9e4f5d15a7d1f2de3a"
+  },
+  "evaluatorId": {
+    "$oid": "6718368da8d6f9b9e514e275"
+  },
+  "evaluateeId": {
+    "$oid": "67183665a8d6f9b9e514e26e"
+  },
+  "evaluationTemplateId": {
+    "$oid": "671736f7a7aa4a60864b191f"
+  },
+  "responses": [
+    {
+      "categoryName": "Comunicación Verbal",
+      "questions": [
+        {
+          "question": "¿Habla de forma clara?",
+          "answer": 1,
+          "_id": {
+            "$oid": "6719aecc4f5d15a7d1f2de97"
+          }
+        },
+        {
+          "question": "¿Usa un tono adecuado?",
+          "answer": 1,
+          "_id": {
+            "$oid": "6719aecc4f5d15a7d1f2de98"
+          }
+        }
+      ],
+      "_id": {
+        "$oid": "6719aecc4f5d15a7d1f2de96"
+      }
+    },
+    {
+      "categoryName": "Escucha Activa",
+      "questions": [
+        {
+          "question": "¿Escucha sin interrumpir?",
+          "answer": 1,
+          "_id": {
+            "$oid": "6719aecc4f5d15a7d1f2de9a"
+          }
+        },
+        {
+          "question": "¿Hace preguntas pertinentes?",
+          "answer": 1,
+          "_id": {
+            "$oid": "6719aecc4f5d15a7d1f2de9b"
+          }
+        }
+      ],
+      "_id": {
+        "$oid": "6719aecc4f5d15a7d1f2de99"
+      }
+    }
+  ],
+  "completed": true,
+  "assignedAt": {
+    "$date": "2024-10-24T02:19:10.364Z"
+  },
+  "__v": 1,
+  "completedAt": {
+    "$date": "2024-10-24T02:19:56.307Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "6719ae9e4f5d15a7d1f2de42"
+  },
+  "evaluatorId": {
+    "$oid": "671836a2a8d6f9b9e514e27c"
+  },
+  "evaluateeId": {
+    "$oid": "67183665a8d6f9b9e514e26e"
+  },
+  "evaluationTemplateId": {
+    "$oid": "671736f7a7aa4a60864b191f"
+  },
+  "responses": [
+    {
+      "categoryName": "Comunicación Verbal",
+      "questions": [
+        {
+          "question": "¿Habla de forma clara?",
+          "answer": null,
+          "_id": {
+            "$oid": "6719ae9e4f5d15a7d1f2de44"
+          }
+        },
+        {
+          "question": "¿Usa un tono adecuado?",
+          "answer": null,
+          "_id": {
+            "$oid": "6719ae9e4f5d15a7d1f2de45"
+          }
+        }
+      ],
+      "_id": {
+        "$oid": "6719ae9e4f5d15a7d1f2de43"
+      }
+    },
+    {
+      "categoryName": "Escucha Activa",
+      "questions": [
+        {
+          "question": "¿Escucha sin interrumpir?",
+          "answer": null,
+          "_id": {
+            "$oid": "6719ae9e4f5d15a7d1f2de47"
+          }
+        },
+        {
+          "question": "¿Hace preguntas pertinentes?",
+          "answer": null,
+          "_id": {
+            "$oid": "6719ae9e4f5d15a7d1f2de48"
+          }
+        }
+      ],
+      "_id": {
+        "$oid": "6719ae9e4f5d15a7d1f2de46"
+      }
+    }
+  ],
+  "completed": false,
+  "assignedAt": {
+    "$date": "2024-10-24T02:19:10.367Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6719ae9e4f5d15a7d1f2de4a"
+  },
+  "evaluatorId": {
+    "$oid": "671836b1a8d6f9b9e514e283"
+  },
+  "evaluateeId": {
+    "$oid": "67183665a8d6f9b9e514e26e"
+  },
+  "evaluationTemplateId": {
+    "$oid": "671736f7a7aa4a60864b191f"
+  },
+  "responses": [
+    {
+      "categoryName": "Comunicación Verbal",
+      "questions": [
+        {
+          "question": "¿Habla de forma clara?",
+          "answer": null,
+          "_id": {
+            "$oid": "6719ae9e4f5d15a7d1f2de4c"
+          }
+        },
+        {
+          "question": "¿Usa un tono adecuado?",
+          "answer": null,
+          "_id": {
+            "$oid": "6719ae9e4f5d15a7d1f2de4d"
+          }
+        }
+      ],
+      "_id": {
+        "$oid": "6719ae9e4f5d15a7d1f2de4b"
+      }
+    },
+    {
+      "categoryName": "Escucha Activa",
+      "questions": [
+        {
+          "question": "¿Escucha sin interrumpir?",
+          "answer": null,
+          "_id": {
+            "$oid": "6719ae9e4f5d15a7d1f2de4f"
+          }
+        },
+        {
+          "question": "¿Hace preguntas pertinentes?",
+          "answer": null,
+          "_id": {
+            "$oid": "6719ae9e4f5d15a7d1f2de50"
+          }
+        }
+      ],
+      "_id": {
+        "$oid": "6719ae9e4f5d15a7d1f2de4e"
+      }
+    }
+  ],
+  "completed": false,
+  "assignedAt": {
+    "$date": "2024-10-24T02:19:10.369Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6719c4a8b40e67669b53341d"
+  },
+  "evaluatorId": {
+    "$oid": "6718359fa8d6f9b9e514e25a"
+  },
+  "evaluateeId": {
+    "$oid": "67183665a8d6f9b9e514e26e"
+  },
+  "evaluationTemplateId": {
+    "$oid": "671736efa7aa4a60864b1917"
+  },
+  "responses": [
+    {
+      "categoryName": "Delegación",
+      "questions": [
+        {
+          "question": "¿Sabe delegar tareas efectivamente?",
+          "answer": 3,
+          "_id": {
+            "$oid": "6719c4b0b40e67669b53346b"
+          }
+        },
+        {
+          "question": "¿Confía en su equipo?",
+          "answer": 3,
+          "_id": {
+            "$oid": "6719c4b0b40e67669b53346c"
+          }
+        }
+      ],
+      "_id": {
+        "$oid": "6719c4b0b40e67669b53346a"
+      }
+    },
+    {
+      "categoryName": "Toma de decisiones",
+      "questions": [
+        {
+          "question": "¿Toma decisiones informadas?",
+          "answer": 3,
+          "_id": {
+            "$oid": "6719c4b0b40e67669b53346e"
+          }
+        },
+        {
+          "question": "¿Evalúa riesgos antes de decidir?",
+          "answer": 3,
+          "_id": {
+            "$oid": "6719c4b0b40e67669b53346f"
+          }
+        }
+      ],
+      "_id": {
+        "$oid": "6719c4b0b40e67669b53346d"
+      }
+    }
+  ],
+  "completed": true,
+  "assignedAt": {
+    "$date": "2024-10-24T03:53:12.059Z"
+  },
+  "__v": 1,
+  "completedAt": {
+    "$date": "2024-10-24T03:53:20.479Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "6719c4a8b40e67669b533425"
+  },
+  "evaluatorId": {
+    "$oid": "67183665a8d6f9b9e514e26e"
+  },
+  "evaluateeId": {
+    "$oid": "67183665a8d6f9b9e514e26e"
+  },
+  "evaluationTemplateId": {
+    "$oid": "671736efa7aa4a60864b1917"
+  },
+  "responses": [
+    {
+      "categoryName": "Delegación",
+      "questions": [
+        {
+          "question": "¿Sabe delegar tareas efectivamente?",
+          "answer": null,
+          "_id": {
+            "$oid": "6719c4a8b40e67669b533427"
+          }
+        },
+        {
+          "question": "¿Confía en su equipo?",
+          "answer": null,
+          "_id": {
+            "$oid": "6719c4a8b40e67669b533428"
+          }
+        }
+      ],
+      "_id": {
+        "$oid": "6719c4a8b40e67669b533426"
+      }
+    },
+    {
+      "categoryName": "Toma de decisiones",
+      "questions": [
+        {
+          "question": "¿Toma decisiones informadas?",
+          "answer": null,
+          "_id": {
+            "$oid": "6719c4a8b40e67669b53342a"
+          }
+        },
+        {
+          "question": "¿Evalúa riesgos antes de decidir?",
+          "answer": null,
+          "_id": {
+            "$oid": "6719c4a8b40e67669b53342b"
+          }
+        }
+      ],
+      "_id": {
+        "$oid": "6719c4a8b40e67669b533429"
+      }
+    }
+  ],
+  "completed": false,
+  "assignedAt": {
+    "$date": "2024-10-24T03:53:12.075Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6719c4a8b40e67669b53342d"
+  },
+  "evaluatorId": {
+    "$oid": "6718368da8d6f9b9e514e275"
+  },
+  "evaluateeId": {
+    "$oid": "67183665a8d6f9b9e514e26e"
+  },
+  "evaluationTemplateId": {
+    "$oid": "671736efa7aa4a60864b1917"
+  },
+  "responses": [
+    {
+      "categoryName": "Delegación",
+      "questions": [
+        {
+          "question": "¿Sabe delegar tareas efectivamente?",
+          "answer": null,
+          "_id": {
+            "$oid": "6719c4a8b40e67669b53342f"
+          }
+        },
+        {
+          "question": "¿Confía en su equipo?",
+          "answer": null,
+          "_id": {
+            "$oid": "6719c4a8b40e67669b533430"
+          }
+        }
+      ],
+      "_id": {
+        "$oid": "6719c4a8b40e67669b53342e"
+      }
+    },
+    {
+      "categoryName": "Toma de decisiones",
+      "questions": [
+        {
+          "question": "¿Toma decisiones informadas?",
+          "answer": null,
+          "_id": {
+            "$oid": "6719c4a8b40e67669b533432"
+          }
+        },
+        {
+          "question": "¿Evalúa riesgos antes de decidir?",
+          "answer": null,
+          "_id": {
+            "$oid": "6719c4a8b40e67669b533433"
+          }
+        }
+      ],
+      "_id": {
+        "$oid": "6719c4a8b40e67669b533431"
+      }
+    }
+  ],
+  "completed": false,
+  "assignedAt": {
+    "$date": "2024-10-24T03:53:12.082Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6719c4a8b40e67669b533435"
+  },
+  "evaluatorId": {
+    "$oid": "671836a2a8d6f9b9e514e27c"
+  },
+  "evaluateeId": {
+    "$oid": "67183665a8d6f9b9e514e26e"
+  },
+  "evaluationTemplateId": {
+    "$oid": "671736efa7aa4a60864b1917"
+  },
+  "responses": [
+    {
+      "categoryName": "Delegación",
+      "questions": [
+        {
+          "question": "¿Sabe delegar tareas efectivamente?",
+          "answer": null,
+          "_id": {
+            "$oid": "6719c4a8b40e67669b533437"
+          }
+        },
+        {
+          "question": "¿Confía en su equipo?",
+          "answer": null,
+          "_id": {
+            "$oid": "6719c4a8b40e67669b533438"
+          }
+        }
+      ],
+      "_id": {
+        "$oid": "6719c4a8b40e67669b533436"
+      }
+    },
+    {
+      "categoryName": "Toma de decisiones",
+      "questions": [
+        {
+          "question": "¿Toma decisiones informadas?",
+          "answer": null,
+          "_id": {
+            "$oid": "6719c4a8b40e67669b53343a"
+          }
+        },
+        {
+          "question": "¿Evalúa riesgos antes de decidir?",
+          "answer": null,
+          "_id": {
+            "$oid": "6719c4a8b40e67669b53343b"
+          }
+        }
+      ],
+      "_id": {
+        "$oid": "6719c4a8b40e67669b533439"
+      }
+    }
+  ],
+  "completed": false,
+  "assignedAt": {
+    "$date": "2024-10-24T03:53:12.086Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6719c4a8b40e67669b53343d"
+  },
+  "evaluatorId": {
+    "$oid": "671836b1a8d6f9b9e514e283"
+  },
+  "evaluateeId": {
+    "$oid": "67183665a8d6f9b9e514e26e"
+  },
+  "evaluationTemplateId": {
+    "$oid": "671736efa7aa4a60864b1917"
+  },
+  "responses": [
+    {
+      "categoryName": "Delegación",
+      "questions": [
+        {
+          "question": "¿Sabe delegar tareas efectivamente?",
+          "answer": null,
+          "_id": {
+            "$oid": "6719c4a8b40e67669b53343f"
+          }
+        },
+        {
+          "question": "¿Confía en su equipo?",
+          "answer": null,
+          "_id": {
+            "$oid": "6719c4a8b40e67669b533440"
+          }
+        }
+      ],
+      "_id": {
+        "$oid": "6719c4a8b40e67669b53343e"
+      }
+    },
+    {
+      "categoryName": "Toma de decisiones",
+      "questions": [
+        {
+          "question": "¿Toma decisiones informadas?",
+          "answer": null,
+          "_id": {
+            "$oid": "6719c4a8b40e67669b533442"
+          }
+        },
+        {
+          "question": "¿Evalúa riesgos antes de decidir?",
+          "answer": null,
+          "_id": {
+            "$oid": "6719c4a8b40e67669b533443"
+          }
+        }
+      ],
+      "_id": {
+        "$oid": "6719c4a8b40e67669b533441"
+      }
+    }
+  ],
+  "completed": false,
+  "assignedAt": {
+    "$date": "2024-10-24T03:53:12.090Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6719dd8a33950276ac148c85"
+  },
+  "evaluatorId": {
+    "$oid": "6718359fa8d6f9b9e514e25a"
+  },
+  "evaluateeId": {
+    "$oid": "67183665a8d6f9b9e514e26e"
+  },
+  "evaluationTemplateId": {
+    "$oid": "67185f439a92f0ef572ab4f3"
+  },
+  "responses": [
+    {
+      "categoryName": "Categoría 1",
+      "questions": [
+        {
+          "question": "Pregunta 1",
+          "answer": 1,
+          "_id": {
+            "$oid": "6719dda733950276ac148d2b"
+          }
+        },
+        {
+          "question": "Pregunta 2",
+          "answer": 2,
+          "_id": {
+            "$oid": "6719dda733950276ac148d2c"
+          }
+        },
+        {
+          "question": "Pregunta 3",
+          "answer": 4,
+          "_id": {
+            "$oid": "6719dda733950276ac148d2d"
+          }
+        }
+      ],
+      "_id": {
+        "$oid": "6719dda733950276ac148d2a"
+      }
+    },
+    {
+      "categoryName": "Categoría 2",
+      "questions": [
+        {
+          "question": "Pregunta 1",
+          "answer": 1,
+          "_id": {
+            "$oid": "6719dda733950276ac148d2f"
+          }
+        },
+        {
+          "question": "Pregunta 2",
+          "answer": 2,
+          "_id": {
+            "$oid": "6719dda733950276ac148d30"
+          }
+        },
+        {
+          "question": "Pregunta 3",
+          "answer": 4,
+          "_id": {
+            "$oid": "6719dda733950276ac148d31"
+          }
+        }
+      ],
+      "_id": {
+        "$oid": "6719dda733950276ac148d2e"
+      }
+    },
+    {
+      "categoryName": "Categoría 3",
+      "questions": [
+        {
+          "question": "Pregunta 1",
+          "answer": 2,
+          "_id": {
+            "$oid": "6719dda733950276ac148d33"
+          }
+        },
+        {
+          "question": "Pregunta 2",
+          "answer": 5,
+          "_id": {
+            "$oid": "6719dda733950276ac148d34"
+          }
+        },
+        {
+          "question": "Pregunta 3",
+          "answer": 2,
+          "_id": {
+            "$oid": "6719dda733950276ac148d35"
+          }
+        }
+      ],
+      "_id": {
+        "$oid": "6719dda733950276ac148d32"
+      }
+    }
+  ],
+  "completed": true,
+  "assignedAt": {
+    "$date": "2024-10-24T05:39:22.011Z"
+  },
+  "__v": 1,
+  "completedAt": {
+    "$date": "2024-10-24T05:39:51.702Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "6719dd8a33950276ac148c93"
+  },
+  "evaluatorId": {
+    "$oid": "67183665a8d6f9b9e514e26e"
+  },
+  "evaluateeId": {
+    "$oid": "67183665a8d6f9b9e514e26e"
+  },
+  "evaluationTemplateId": {
+    "$oid": "67185f439a92f0ef572ab4f3"
+  },
+  "responses": [
+    {
+      "categoryName": "Categoría 1",
+      "questions": [
+        {
+          "question": "Pregunta 1",
+          "answer": null,
+          "_id": {
+            "$oid": "6719dd8a33950276ac148c95"
+          }
+        },
+        {
+          "question": "Pregunta 2",
+          "answer": null,
+          "_id": {
+            "$oid": "6719dd8a33950276ac148c96"
+          }
+        },
+        {
+          "question": "Pregunta 3",
+          "answer": null,
+          "_id": {
+            "$oid": "6719dd8a33950276ac148c97"
+          }
+        }
+      ],
+      "_id": {
+        "$oid": "6719dd8a33950276ac148c94"
+      }
+    },
+    {
+      "categoryName": "Categoría 2",
+      "questions": [
+        {
+          "question": "Pregunta 1",
+          "answer": null,
+          "_id": {
+            "$oid": "6719dd8a33950276ac148c99"
+          }
+        },
+        {
+          "question": "Pregunta 2",
+          "answer": null,
+          "_id": {
+            "$oid": "6719dd8a33950276ac148c9a"
+          }
+        },
+        {
+          "question": "Pregunta 3",
+          "answer": null,
+          "_id": {
+            "$oid": "6719dd8a33950276ac148c9b"
+          }
+        }
+      ],
+      "_id": {
+        "$oid": "6719dd8a33950276ac148c98"
+      }
+    },
+    {
+      "categoryName": "Categoría 3",
+      "questions": [
+        {
+          "question": "Pregunta 1",
+          "answer": null,
+          "_id": {
+            "$oid": "6719dd8a33950276ac148c9d"
+          }
+        },
+        {
+          "question": "Pregunta 2",
+          "answer": null,
+          "_id": {
+            "$oid": "6719dd8a33950276ac148c9e"
+          }
+        },
+        {
+          "question": "Pregunta 3",
+          "answer": null,
+          "_id": {
+            "$oid": "6719dd8a33950276ac148c9f"
+          }
+        }
+      ],
+      "_id": {
+        "$oid": "6719dd8a33950276ac148c9c"
+      }
+    }
+  ],
+  "completed": false,
+  "assignedAt": {
+    "$date": "2024-10-24T05:39:22.018Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6719dd8a33950276ac148ca1"
+  },
+  "evaluatorId": {
+    "$oid": "6718368da8d6f9b9e514e275"
+  },
+  "evaluateeId": {
+    "$oid": "67183665a8d6f9b9e514e26e"
+  },
+  "evaluationTemplateId": {
+    "$oid": "67185f439a92f0ef572ab4f3"
+  },
+  "responses": [
+    {
+      "categoryName": "Categoría 1",
+      "questions": [
+        {
+          "question": "Pregunta 1",
+          "answer": null,
+          "_id": {
+            "$oid": "6719dd8a33950276ac148ca3"
+          }
+        },
+        {
+          "question": "Pregunta 2",
+          "answer": null,
+          "_id": {
+            "$oid": "6719dd8a33950276ac148ca4"
+          }
+        },
+        {
+          "question": "Pregunta 3",
+          "answer": null,
+          "_id": {
+            "$oid": "6719dd8a33950276ac148ca5"
+          }
+        }
+      ],
+      "_id": {
+        "$oid": "6719dd8a33950276ac148ca2"
+      }
+    },
+    {
+      "categoryName": "Categoría 2",
+      "questions": [
+        {
+          "question": "Pregunta 1",
+          "answer": null,
+          "_id": {
+            "$oid": "6719dd8a33950276ac148ca7"
+          }
+        },
+        {
+          "question": "Pregunta 2",
+          "answer": null,
+          "_id": {
+            "$oid": "6719dd8a33950276ac148ca8"
+          }
+        },
+        {
+          "question": "Pregunta 3",
+          "answer": null,
+          "_id": {
+            "$oid": "6719dd8a33950276ac148ca9"
+          }
+        }
+      ],
+      "_id": {
+        "$oid": "6719dd8a33950276ac148ca6"
+      }
+    },
+    {
+      "categoryName": "Categoría 3",
+      "questions": [
+        {
+          "question": "Pregunta 1",
+          "answer": null,
+          "_id": {
+            "$oid": "6719dd8a33950276ac148cab"
+          }
+        },
+        {
+          "question": "Pregunta 2",
+          "answer": null,
+          "_id": {
+            "$oid": "6719dd8a33950276ac148cac"
+          }
+        },
+        {
+          "question": "Pregunta 3",
+          "answer": null,
+          "_id": {
+            "$oid": "6719dd8a33950276ac148cad"
+          }
+        }
+      ],
+      "_id": {
+        "$oid": "6719dd8a33950276ac148caa"
+      }
+    }
+  ],
+  "completed": false,
+  "assignedAt": {
+    "$date": "2024-10-24T05:39:22.021Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6719dd8a33950276ac148caf"
+  },
+  "evaluatorId": {
+    "$oid": "671836a2a8d6f9b9e514e27c"
+  },
+  "evaluateeId": {
+    "$oid": "67183665a8d6f9b9e514e26e"
+  },
+  "evaluationTemplateId": {
+    "$oid": "67185f439a92f0ef572ab4f3"
+  },
+  "responses": [
+    {
+      "categoryName": "Categoría 1",
+      "questions": [
+        {
+          "question": "Pregunta 1",
+          "answer": null,
+          "_id": {
+            "$oid": "6719dd8a33950276ac148cb1"
+          }
+        },
+        {
+          "question": "Pregunta 2",
+          "answer": null,
+          "_id": {
+            "$oid": "6719dd8a33950276ac148cb2"
+          }
+        },
+        {
+          "question": "Pregunta 3",
+          "answer": null,
+          "_id": {
+            "$oid": "6719dd8a33950276ac148cb3"
+          }
+        }
+      ],
+      "_id": {
+        "$oid": "6719dd8a33950276ac148cb0"
+      }
+    },
+    {
+      "categoryName": "Categoría 2",
+      "questions": [
+        {
+          "question": "Pregunta 1",
+          "answer": null,
+          "_id": {
+            "$oid": "6719dd8a33950276ac148cb5"
+          }
+        },
+        {
+          "question": "Pregunta 2",
+          "answer": null,
+          "_id": {
+            "$oid": "6719dd8a33950276ac148cb6"
+          }
+        },
+        {
+          "question": "Pregunta 3",
+          "answer": null,
+          "_id": {
+            "$oid": "6719dd8a33950276ac148cb7"
+          }
+        }
+      ],
+      "_id": {
+        "$oid": "6719dd8a33950276ac148cb4"
+      }
+    },
+    {
+      "categoryName": "Categoría 3",
+      "questions": [
+        {
+          "question": "Pregunta 1",
+          "answer": null,
+          "_id": {
+            "$oid": "6719dd8a33950276ac148cb9"
+          }
+        },
+        {
+          "question": "Pregunta 2",
+          "answer": null,
+          "_id": {
+            "$oid": "6719dd8a33950276ac148cba"
+          }
+        },
+        {
+          "question": "Pregunta 3",
+          "answer": null,
+          "_id": {
+            "$oid": "6719dd8a33950276ac148cbb"
+          }
+        }
+      ],
+      "_id": {
+        "$oid": "6719dd8a33950276ac148cb8"
+      }
+    }
+  ],
+  "completed": false,
+  "assignedAt": {
+    "$date": "2024-10-24T05:39:22.024Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6719dd8a33950276ac148cbd"
+  },
+  "evaluatorId": {
+    "$oid": "671836b1a8d6f9b9e514e283"
+  },
+  "evaluateeId": {
+    "$oid": "67183665a8d6f9b9e514e26e"
+  },
+  "evaluationTemplateId": {
+    "$oid": "67185f439a92f0ef572ab4f3"
+  },
+  "responses": [
+    {
+      "categoryName": "Categoría 1",
+      "questions": [
+        {
+          "question": "Pregunta 1",
+          "answer": null,
+          "_id": {
+            "$oid": "6719dd8a33950276ac148cbf"
+          }
+        },
+        {
+          "question": "Pregunta 2",
+          "answer": null,
+          "_id": {
+            "$oid": "6719dd8a33950276ac148cc0"
+          }
+        },
+        {
+          "question": "Pregunta 3",
+          "answer": null,
+          "_id": {
+            "$oid": "6719dd8a33950276ac148cc1"
+          }
+        }
+      ],
+      "_id": {
+        "$oid": "6719dd8a33950276ac148cbe"
+      }
+    },
+    {
+      "categoryName": "Categoría 2",
+      "questions": [
+        {
+          "question": "Pregunta 1",
+          "answer": null,
+          "_id": {
+            "$oid": "6719dd8a33950276ac148cc3"
+          }
+        },
+        {
+          "question": "Pregunta 2",
+          "answer": null,
+          "_id": {
+            "$oid": "6719dd8a33950276ac148cc4"
+          }
+        },
+        {
+          "question": "Pregunta 3",
+          "answer": null,
+          "_id": {
+            "$oid": "6719dd8a33950276ac148cc5"
+          }
+        }
+      ],
+      "_id": {
+        "$oid": "6719dd8a33950276ac148cc2"
+      }
+    },
+    {
+      "categoryName": "Categoría 3",
+      "questions": [
+        {
+          "question": "Pregunta 1",
+          "answer": null,
+          "_id": {
+            "$oid": "6719dd8a33950276ac148cc7"
+          }
+        },
+        {
+          "question": "Pregunta 2",
+          "answer": null,
+          "_id": {
+            "$oid": "6719dd8a33950276ac148cc8"
+          }
+        },
+        {
+          "question": "Pregunta 3",
+          "answer": null,
+          "_id": {
+            "$oid": "6719dd8a33950276ac148cc9"
+          }
+        }
+      ],
+      "_id": {
+        "$oid": "6719dd8a33950276ac148cc6"
+      }
+    }
+  ],
+  "completed": false,
+  "assignedAt": {
+    "$date": "2024-10-24T05:39:22.026Z"
+  },
+  "__v": 0
+}]

@@ -1,0 +1,105 @@
+[{
+  "_id": {
+    "$oid": "6718359fa8d6f9b9e514e25a"
+  },
+  "name": "Admin",
+  "email": "admin@example.com",
+  "role": "Admin",
+  "phone": "987654321",
+  "position": "Coordinador",
+  "department": "Operaciones",
+  "userId": {
+    "$oid": "6718359fa8d6f9b9e514e258"
+  },
+  "createdAt": {
+    "$date": "2024-10-22T23:30:39.710Z"
+  },
+  "updatedAt": {
+    "$date": "2024-10-22T23:30:39.710Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "67183665a8d6f9b9e514e26e"
+  },
+  "name": "Manager",
+  "email": "manager@example.com",
+  "role": "Manager",
+  "phone": "9876543211",
+  "position": "Coordinador",
+  "department": "Marketing",
+  "userId": {
+    "$oid": "67183664a8d6f9b9e514e26c"
+  },
+  "createdAt": {
+    "$date": "2024-10-22T23:33:57.011Z"
+  },
+  "updatedAt": {
+    "$date": "2024-10-22T23:33:57.011Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6718368da8d6f9b9e514e275"
+  },
+  "name": "Employee 1",
+  "email": "employee_1@example.com",
+  "role": "Employee",
+  "phone": "987654321",
+  "position": "Asistente",
+  "department": "Ventas",
+  "userId": {
+    "$oid": "6718368da8d6f9b9e514e273"
+  },
+  "createdAt": {
+    "$date": "2024-10-22T23:34:37.853Z"
+  },
+  "updatedAt": {
+    "$date": "2024-10-22T23:34:37.853Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "671836a2a8d6f9b9e514e27c"
+  },
+  "name": "Employee 2",
+  "email": "employee_2@example.com",
+  "role": "Employee",
+  "phone": "123123123",
+  "position": "Asistente",
+  "department": "Marketing",
+  "userId": {
+    "$oid": "671836a2a8d6f9b9e514e27a"
+  },
+  "createdAt": {
+    "$date": "2024-10-22T23:34:58.317Z"
+  },
+  "updatedAt": {
+    "$date": "2024-10-22T23:34:58.317Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "671836b1a8d6f9b9e514e283"
+  },
+  "name": "Employee 3",
+  "email": "employee_3@example.com",
+  "role": "Employee",
+  "phone": "13123123123",
+  "position": "Asistente",
+  "department": "Ventas",
+  "userId": {
+    "$oid": "671836b1a8d6f9b9e514e281"
+  },
+  "createdAt": {
+    "$date": "2024-10-22T23:35:13.259Z"
+  },
+  "updatedAt": {
+    "$date": "2024-10-22T23:35:13.259Z"
+  },
+  "__v": 0
+}]

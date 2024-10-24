@@ -1,0 +1,95 @@
+[{
+  "_id": {
+    "$oid": "6718359fa8d6f9b9e514e258"
+  },
+  "name": "Admin",
+  "email": "admin@example.com",
+  "password": "$2a$10$8XlrsDeFdKx/8Ow7Lorn4uNR.AcrhKj4HR8SL8r4tuz9yrZ1382XO",
+  "role": "Admin",
+  "createdAt": {
+    "$date": "2024-10-22T23:30:39.617Z"
+  },
+  "updatedAt": {
+    "$date": "2024-10-22T23:30:39.617Z"
+  },
+  "__v": 0,
+  "employeeId": {
+    "$oid": "6718359fa8d6f9b9e514e25a"
+  }
+},
+{
+  "_id": {
+    "$oid": "67183664a8d6f9b9e514e26c"
+  },
+  "name": "Manager",
+  "email": "manager@example.com",
+  "password": "$2a$10$LNaoufqb3nFIeivsogWbXeyCsP2Gj8DRtZ.KkRUuRr2jWqk6wLqNa",
+  "role": "Manager",
+  "createdAt": {
+    "$date": "2024-10-22T23:33:56.938Z"
+  },
+  "updatedAt": {
+    "$date": "2024-10-22T23:33:56.938Z"
+  },
+  "__v": 0,
+  "employeeId": {
+    "$oid": "67183665a8d6f9b9e514e26e"
+  }
+},
+{
+  "_id": {
+    "$oid": "6718368da8d6f9b9e514e273"
+  },
+  "name": "Employee 1",
+  "email": "employee_1@example.com",
+  "password": "$2a$10$vgge6UBF1MEqjLy1X.TkG.IO11/vRm2m38S5RU43AOq3tbW7D.kSy",
+  "role": "Employee",
+  "createdAt": {
+    "$date": "2024-10-22T23:34:37.780Z"
+  },
+  "updatedAt": {
+    "$date": "2024-10-22T23:34:37.780Z"
+  },
+  "__v": 0,
+  "employeeId": {
+    "$oid": "6718368da8d6f9b9e514e275"
+  }
+},
+{
+  "_id": {
+    "$oid": "671836a2a8d6f9b9e514e27a"
+  },
+  "name": "Employee 2",
+  "email": "employee_2@example.com",
+  "password": "$2a$10$9.N8NlQQBjSBATIQx8LSjOSlPufxWDFChgOW98W2fXQa6y7vgxoKW",
+  "role": "Employee",
+  "createdAt": {
+    "$date": "2024-10-22T23:34:58.242Z"
+  },
+  "updatedAt": {
+    "$date": "2024-10-22T23:34:58.242Z"
+  },
+  "__v": 0,
+  "employeeId": {
+    "$oid": "671836a2a8d6f9b9e514e27c"
+  }
+},
+{
+  "_id": {
+    "$oid": "671836b1a8d6f9b9e514e281"
+  },
+  "name": "Employee 3",
+  "email": "employee_3@example.com",
+  "password": "$2a$10$KxXF0rTn5pUkL9NHYZU.su3GKS28HOGsCRdv/mtLLUY2oo2xv7PjG",
+  "role": "Employee",
+  "createdAt": {
+    "$date": "2024-10-22T23:35:13.180Z"
+  },
+  "updatedAt": {
+    "$date": "2024-10-22T23:35:13.180Z"
+  },
+  "__v": 0,
+  "employeeId": {
+    "$oid": "671836b1a8d6f9b9e514e283"
+  }
+}]

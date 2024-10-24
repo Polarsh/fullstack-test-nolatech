@@ -1,0 +1,315 @@
+[{
+  "_id": {
+    "$oid": "671736e5a7aa4a60864b190f"
+  },
+  "createdBy": "admin@dybsm98.com",
+  "title": "Evaluación de Desempeño",
+  "categories": [
+    {
+      "questions": [
+        {
+          "question": "¿Demuestra habilidades de liderazgo?",
+          "_id": {
+            "$oid": "671736e5a7aa4a60864b1911"
+          }
+        },
+        {
+          "question": "¿Toma decisiones bajo presión?",
+          "_id": {
+            "$oid": "671736e5a7aa4a60864b1912"
+          }
+        }
+      ],
+      "_id": {
+        "$oid": "671736e5a7aa4a60864b1910"
+      },
+      "categoryName": "Liderazgo"
+    },
+    {
+      "questions": [
+        {
+          "question": "¿Se comunica de manera efectiva?",
+          "_id": {
+            "$oid": "671736e5a7aa4a60864b1914"
+          }
+        },
+        {
+          "question": "¿Escucha a los demás?",
+          "_id": {
+            "$oid": "671736e5a7aa4a60864b1915"
+          }
+        }
+      ],
+      "_id": {
+        "$oid": "671736e5a7aa4a60864b1913"
+      },
+      "categoryName": "Comunicación"
+    }
+  ],
+  "createdAt": {
+    "$date": "2024-10-22T05:23:49.178Z"
+  },
+  "updatedAt": {
+    "$date": "2024-10-22T05:23:49.178Z"
+  },
+  "__v": 2,
+  "feedback": [
+    {
+      "employeeId": {
+        "$oid": "6717178e6031897991170d14"
+      },
+      "comment": "Todo bien",
+      "submittedAt": {
+        "$date": "2024-10-22T16:56:56.297Z"
+      },
+      "_id": {
+        "$oid": "6717d9586435e7de5cfdab7e"
+      }
+    },
+    {
+      "employeeId": {
+        "$oid": "6717178e6031897991170d14"
+      },
+      "comment": "Arreglar las tildes",
+      "submittedAt": {
+        "$date": "2024-10-22T17:00:46.097Z"
+      },
+      "_id": {
+        "$oid": "6717da3e439ca9f051d4ee97"
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "671736efa7aa4a60864b1917"
+  },
+  "createdBy": "admin@dybsm98.com",
+  "title": "Evaluación de Liderazgo",
+  "categories": [
+    {
+      "questions": [
+        {
+          "question": "¿Sabe delegar tareas efectivamente?",
+          "_id": {
+            "$oid": "671736efa7aa4a60864b1919"
+          }
+        },
+        {
+          "question": "¿Confía en su equipo?",
+          "_id": {
+            "$oid": "671736efa7aa4a60864b191a"
+          }
+        }
+      ],
+      "_id": {
+        "$oid": "671736efa7aa4a60864b1918"
+      },
+      "categoryName": "Delegación"
+    },
+    {
+      "questions": [
+        {
+          "question": "¿Toma decisiones informadas?",
+          "_id": {
+            "$oid": "671736efa7aa4a60864b191c"
+          }
+        },
+        {
+          "question": "¿Evalúa riesgos antes de decidir?",
+          "_id": {
+            "$oid": "671736efa7aa4a60864b191d"
+          }
+        }
+      ],
+      "_id": {
+        "$oid": "671736efa7aa4a60864b191b"
+      },
+      "categoryName": "Toma de decisiones"
+    }
+  ],
+  "createdAt": {
+    "$date": "2024-10-22T05:23:59.437Z"
+  },
+  "updatedAt": {
+    "$date": "2024-10-22T05:23:59.437Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "671736f7a7aa4a60864b191f"
+  },
+  "createdBy": "admin@dybsm98.com",
+  "title": "Evaluación de Habilidades de Comunicación",
+  "categories": [
+    {
+      "questions": [
+        {
+          "question": "¿Habla de forma clara?",
+          "_id": {
+            "$oid": "671736f7a7aa4a60864b1921"
+          }
+        },
+        {
+          "question": "¿Usa un tono adecuado?",
+          "_id": {
+            "$oid": "671736f7a7aa4a60864b1922"
+          }
+        }
+      ],
+      "_id": {
+        "$oid": "671736f7a7aa4a60864b1920"
+      },
+      "categoryName": "Comunicación Verbal"
+    },
+    {
+      "questions": [
+        {
+          "question": "¿Escucha sin interrumpir?",
+          "_id": {
+            "$oid": "671736f7a7aa4a60864b1924"
+          }
+        },
+        {
+          "question": "¿Hace preguntas pertinentes?",
+          "_id": {
+            "$oid": "671736f7a7aa4a60864b1925"
+          }
+        }
+      ],
+      "_id": {
+        "$oid": "671736f7a7aa4a60864b1923"
+      },
+      "categoryName": "Escucha Activa"
+    }
+  ],
+  "createdAt": {
+    "$date": "2024-10-22T05:24:07.011Z"
+  },
+  "updatedAt": {
+    "$date": "2024-10-22T05:24:07.011Z"
+  },
+  "__v": 2,
+  "feedback": [
+    {
+      "employeeId": {
+        "$oid": "6718359fa8d6f9b9e514e25a"
+      },
+      "comment": "Mejorar el texto",
+      "submittedAt": {
+        "$date": "2024-10-24T03:21:36.074Z"
+      },
+      "_id": {
+        "$oid": "6719bd404f5d15a7d1f2e5e9"
+      }
+    },
+    {
+      "employeeId": {
+        "$oid": "6718359fa8d6f9b9e514e25a"
+      },
+      "comment": "Todo perfecto",
+      "submittedAt": {
+        "$date": "2024-10-24T03:23:09.662Z"
+      },
+      "_id": {
+        "$oid": "6719bd9d4f5d15a7d1f2e605"
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "67185f439a92f0ef572ab4f3"
+  },
+  "createdBy": "admin@example.com",
+  "title": "Título",
+  "categories": [
+    {
+      "categoryName": "Categoría 1",
+      "questions": [
+        {
+          "question": "Pregunta 1",
+          "_id": {
+            "$oid": "67186f879a92f0ef572ab813"
+          }
+        },
+        {
+          "question": "Pregunta 2",
+          "_id": {
+            "$oid": "671933054094885a4ef10726"
+          }
+        },
+        {
+          "question": "Pregunta 3",
+          "_id": {
+            "$oid": "6719330f4094885a4ef1074f"
+          }
+        }
+      ],
+      "_id": {
+        "$oid": "67186f879a92f0ef572ab812"
+      }
+    },
+    {
+      "categoryName": "Categoría 2",
+      "questions": [
+        {
+          "question": "Pregunta 1",
+          "_id": {
+            "$oid": "6719dd8033950276ac148c04"
+          }
+        },
+        {
+          "question": "Pregunta 2",
+          "_id": {
+            "$oid": "6719dd8033950276ac148c05"
+          }
+        },
+        {
+          "question": "Pregunta 3",
+          "_id": {
+            "$oid": "6719dd8033950276ac148c06"
+          }
+        }
+      ],
+      "_id": {
+        "$oid": "6719dd8033950276ac148c03"
+      }
+    },
+    {
+      "categoryName": "Categoría 3",
+      "questions": [
+        {
+          "question": "Pregunta 1",
+          "_id": {
+            "$oid": "6719dd8033950276ac148c08"
+          }
+        },
+        {
+          "question": "Pregunta 2",
+          "_id": {
+            "$oid": "6719dd8033950276ac148c09"
+          }
+        },
+        {
+          "question": "Pregunta 3",
+          "_id": {
+            "$oid": "6719dd8033950276ac148c0a"
+          }
+        }
+      ],
+      "_id": {
+        "$oid": "6719dd8033950276ac148c07"
+      }
+    }
+  ],
+  "feedback": [],
+  "createdAt": {
+    "$date": "2024-10-23T02:28:19.929Z"
+  },
+  "updatedAt": {
+    "$date": "2024-10-23T02:28:19.930Z"
+  },
+  "__v": 5
+}]
