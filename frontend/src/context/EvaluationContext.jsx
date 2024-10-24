@@ -88,7 +88,7 @@ export const EvaluationProvider = ({ children }) => {
     }
   }
 
-  // Función para obtener las evaluaciones asignadas a un empleado por su ID // todo
+  // Función para obtener las evaluaciones asignadas a un empleado por su ID
   const fetchEvaluationsByEmployeeId = async employeeId => {
     setLoading(true)
     setEvaluations([])
@@ -108,7 +108,7 @@ export const EvaluationProvider = ({ children }) => {
     }
   }
 
-  // todo
+  // Asignar evaluacion a un empleado
   const assignEvalutionToEmployee = async evaluationData => {
     try {
       setLoading(true)
@@ -128,6 +128,26 @@ export const EvaluationProvider = ({ children }) => {
     }
   }
 
+  // Función para obtener las evaluaciones segun el evaluador
+  const fetchEvaluationsByEvaluatorId = async employeeId => {
+    setLoading(true)
+    setEvaluations([])
+
+    try {
+      const evaluations =
+        await EvaluationTemplateServices.getEvaluationsByEvaluatorId(employeeId)
+
+      setEvaluations(evaluations.data)
+      /* toast.success('Evaluaciones del empleado cargadas correctamente') */
+    } catch (err) {
+      setError('Error al obtener las evaluaciones del empleado.')
+      toast.error('Error al obtener las evaluaciones del empleado')
+      console.error(err)
+    } finally {
+      setLoading(false)
+    }
+  }
+
   return (
     <EvaluationContext.Provider
       value={{
@@ -139,6 +159,7 @@ export const EvaluationProvider = ({ children }) => {
         updateEvaluationTemplate,
         fetchEvaluationsByEmployeeId,
         assignEvalutionToEmployee,
+        fetchEvaluationsByEvaluatorId,
         loading,
         error,
       }}>
