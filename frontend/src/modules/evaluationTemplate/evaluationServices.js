@@ -96,6 +96,16 @@ class EvaluationTemplateServices {
       handleServiceError(error)
     }
   }
+
+  // dar feedback
+  async addFeedbackToEvaluationTemplate(evaluationData) {
+    try {
+      const response = await httpHelper.post(`/api/feedback`, evaluationData)
+      return response.data.data
+    } catch (error) {
+      handleServiceError(error)
+    }
+  }
 }
 
 export default new EvaluationTemplateServices()

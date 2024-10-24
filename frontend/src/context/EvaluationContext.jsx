@@ -190,6 +190,26 @@ export const EvaluationProvider = ({ children }) => {
     }
   }
 
+  // Añadir feedback
+  const addFeedbackToEvaluationTemplate = async evaluationData => {
+    try {
+      setLoading(true)
+
+      await EvaluationTemplateServices.addFeedbackToEvaluationTemplate(
+        evaluationData
+      )
+
+      toast.success('Feedback añadido con éxito')
+    } catch (err) {
+      setError('Error al enviar el feedback.')
+      toast.error(err.message)
+
+      throw new Error('')
+    } finally {
+      setLoading(false)
+    }
+  }
+
   return (
     <EvaluationContext.Provider
       value={{
@@ -204,6 +224,7 @@ export const EvaluationProvider = ({ children }) => {
         fetchEvaluationsByEvaluatorId,
         fetchAssignedEvaluationById,
         completeEvaluation,
+        addFeedbackToEvaluationTemplate,
         loading,
         error,
       }}>
