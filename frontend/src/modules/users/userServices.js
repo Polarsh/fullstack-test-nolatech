@@ -32,7 +32,7 @@ class UserServices {
   async getUserReportById(userId) {
     try {
       const response = await httpHelper.get(`/api/reports/employee/${userId}`)
-      return response.data.data.report
+      return response.data.data.data
     } catch (error) {
       handleServiceError(error)
     }
