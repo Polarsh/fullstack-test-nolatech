@@ -8,6 +8,7 @@ Este es un proyecto Fullstack que consta de un **backend** desarrollado con Node
 - [Estructura del proyecto](#estructura-del-proyecto)
 - [Scripts](#scripts)
 - [Importar base de datos usando MongoDB Compass](#importar-base-de-datos-usando-mongodb-compass)
+- [Cuentas de prueba](#cuentas-de-prueba)
 
 ## Instalación
 
@@ -135,3 +136,15 @@ Para facilitar el acceso a los datos completos del proyecto, proporciono un arch
 
 7. **Verificar la importación**:
    - Después de importar todos los archivos necesarios, podrás navegar por las colecciones en MongoDB Compass para verificar que los datos se han cargado correctamente.
+
+## Cuentas de prueba
+
+Se proporcionan las siguientes cuentas de prueba para acceder al sistema. Todas las cuentas comparten la misma contraseña, que se configura en el archivo `.env` del backend bajo la variable `DEFAULT_PASSWORD`:
+
+- **Admin**: `admin@example.com`
+- **Manager**: `manager@example.com`
+- **Employee 1**: `employee_1@example.com`
+- **Employee 2**: `employee_2@example.com`
+- **Employee 3**: `employee_3@example.com`
+
+**Contraseña para todas las cuentas**: `nolatech`
