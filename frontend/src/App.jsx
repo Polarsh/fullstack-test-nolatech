@@ -28,6 +28,7 @@ import ViewEvaluationPage from './views/Evaluations/ViewEvaluation'
 import PendingEvaluationsPage from './views/Evaluations/PendingEvaluations'
 import CompleteEvaluationPage from './views/Evaluations/CompleteEvaluation'
 import EvaluationFeedbackPage from './views/Evaluations/EvaluationFeedback'
+import UserReportPage from './views/Users/UserReport'
 
 function ScrollToTop() {
   const { pathname } = useLocation()
@@ -66,6 +67,10 @@ export default function App() {
                       <Route
                         path='ver/:employeeId'
                         element={<ViewUserPage />}
+                      />
+                      <Route
+                        path='reporte/:employeeId'
+                        element={<UserReportPage />}
                       />
                     </Route>
 
