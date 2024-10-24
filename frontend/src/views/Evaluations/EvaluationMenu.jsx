@@ -19,16 +19,20 @@ export default function EvaluationMenuPage() {
     fetchEvaluationTemplates()
   }, [])
 
+  if (loading) {
+    return <>Cargando...</>
+  }
+
   const columns = [
     { header: 'Creador por', accessorKey: 'createdBy' },
     { header: 'Título', accessorKey: 'title' },
     {
       header: 'N° de feedbacks',
-      accessorFn: row => row.feedback.length,
+      accessorFn: row => row?.feedback?.length,
     },
     {
       header: 'N° de categorias',
-      accessorFn: row => row.categories.length,
+      accessorFn: row => row?.categories?.length,
     },
   ]
 
@@ -56,10 +60,6 @@ export default function EvaluationMenuPage() {
       action: navigateToEdit,
     },
   ]
-
-  if (loading) {
-    return <>Cargando...</>
-  }
 
   return (
     <div className=' space-y-6'>
