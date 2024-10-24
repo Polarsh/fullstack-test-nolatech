@@ -2,11 +2,12 @@
 
 Este es un proyecto Fullstack que consta de un **backend** desarrollado con Node.js y Express, y un **frontend** construido con React y Vite. El sistema permite la gestión de usuarios, creación y edición de plantillas de evaluación, asignación de evaluaciones, y seguimiento de evaluaciones pendientes y completadas.
 
-## Requisitos previos
+## Contenido
 
-- **Node.js** v14 o superior
-- **MongoDB** en ejecución local (u otro servidor MongoDB)
-- **NPM** v6 o superior
+- [Instalación](#instalación)
+- [Estructura del proyecto](#estructura-del-proyecto)
+- [Scripts](#scripts)
+- [Importar base de datos usando MongoDB Compass](#importar-base-de-datos-usando-mongodb-compass)
 
 ## Instalación
 
@@ -101,3 +102,36 @@ La estructura del proyecto frontend está organizada de la siguiente manera:
 - **`npm run start:frontend`**: Inicia el servidor frontend en modo de desarrollo.
 - **`npm run start:all`**: Inicia simultáneamente el backend y frontend.
 
+## Importar base de datos usando MongoDB Compass
+
+Para facilitar el acceso a los datos completos del proyecto, proporciono un archivo `.zip` con las colecciones exportadas de la base de datos, que se encuentra en la carpeta `./data`. Es recomendado importar todas las colecciones para facilitar la navegacion por el sistema.
+
+### Pasos para importar los datos:
+
+1. **Descargar y descomprimir los archivos**:
+   - Navega a la carpeta `data` y descarga el archivo `.zip` con las colecciones exportadas.
+   - Descomprime el archivo `.zip` en tu sistema.
+
+2. **Instalar y abrir MongoDB Compass**:
+   - Si no tienes **MongoDB Compass**, puedes descargarlo desde [aquí](https://www.mongodb.com/products/tools/compass).
+   - Abre **MongoDB Compass** e ingresa la URI de tu servidor MongoDB local (generalmente `mongodb://localhost:27017`).
+
+3. **Conectar a la base de datos**:
+   - Haz clic en el botón "Connect" para conectarte a tu servidor MongoDB local.
+
+4. **Crear la base de datos**:
+   - Si aún no existe la base de datos que usarás, puedes crearla manualmente.
+   - En MongoDB Compass, haz clic en **"Create Database"** en la parte superior izquierda.
+   - Ponle el nombre `nolatech_test` (De cambiarlo, actualizar el `.env` del backend).
+
+5. **Importar colecciones**:
+   - Dentro de la base de datos, selecciona la opción **"Add Data"** y elige **"Import File"**.
+   - Selecciona la colección `users` para importar el archivo `users.json` que extrajiste del `.zip`.
+   - Selecciona el formato de importación como **JSON**.
+   - Haz clic en **"Import"** para cargar los datos en la colección.
+
+6. **Repetir el proceso para otras colecciones (recomendado)**:
+   - Si deseas importar más colecciones, repite el proceso para cada archivo `.json` en la carpeta `data`.
+
+7. **Verificar la importación**:
+   - Después de importar todos los archivos necesarios, podrás navegar por las colecciones en MongoDB Compass para verificar que los datos se han cargado correctamente.
