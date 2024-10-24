@@ -83,6 +83,19 @@ class EvaluationTemplateServices {
       handleServiceError(error)
     }
   }
+
+  // completar una evaluacion
+  async completeEvaluation(evaluationData) {
+    try {
+      const response = await httpHelper.post(
+        `/api/evaluations/complete`,
+        evaluationData
+      )
+      return response.data.data
+    } catch (error) {
+      handleServiceError(error)
+    }
+  }
 }
 
 export default new EvaluationTemplateServices()
