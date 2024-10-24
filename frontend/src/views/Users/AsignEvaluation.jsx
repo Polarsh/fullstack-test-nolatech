@@ -70,9 +70,7 @@ export default function AsignEvaluationPage() {
       await assignEvalutionToEmployee(formattedData)
 
       navigate('/trabajadores')
-    } catch (error) {
-      console.log(error)
-    }
+    } catch (error) {}
   }
 
   if (evaluationLoading || userLoading) {

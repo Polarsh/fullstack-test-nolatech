@@ -60,9 +60,7 @@ export default function EvaluationFeedbackPage() {
 
       await addFeedbackToEvaluationTemplate(formattedData)
       navigateToMenu()
-    } catch (error) {
-      console.log(error)
-    }
+    } catch (error) {}
   }
 
   const navigateToMenu = () => {

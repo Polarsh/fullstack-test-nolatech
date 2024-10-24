@@ -52,8 +52,6 @@ export default function CompleteEvaluationPage() {
       })),
     }
 
-    console.log(formattedResponse)
-
     await completeEvaluation(formattedResponse)
 
     navigateToMenu()

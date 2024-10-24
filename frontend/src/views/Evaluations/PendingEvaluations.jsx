@@ -36,9 +36,6 @@ export default function PendingEvaluationsPage() {
     navigate(`/evaluaciones/feedback/${evaluation._id}`)
   }
 
-  console.log(user)
-  console.log(evaluations)
-
   return (
     <div className=' space-y-6'>
       <TitlePageComponent

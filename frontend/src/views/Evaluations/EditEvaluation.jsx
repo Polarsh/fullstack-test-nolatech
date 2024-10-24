@@ -48,7 +48,6 @@ export default function EditEvaluationPage() {
   })
 
   useEffect(() => {
-    console.log(evaluation)
     if (evaluation) {
       setValue('title', evaluation.title)
       setCategories(evaluation.categories)
@@ -120,13 +119,9 @@ export default function EditEvaluationPage() {
         categories, // Enviamos las categorías del estado
       }
 
-      console.log(formattedData)
-
       await updateEvaluationTemplate(evaluationId, formattedData)
       navigateToMenu()
-    } catch (error) {
-      console.log(error)
-    }
+    } catch (error) {}
   }
 
   const navigateToMenu = () => {

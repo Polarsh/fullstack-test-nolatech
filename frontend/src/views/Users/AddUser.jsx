@@ -54,14 +54,10 @@ export default function AddUserPage() {
         department: data.department,
       }
 
-      console.log(formattedData)
-
       await createUser(formattedData)
 
       navigate('/trabajadores')
-    } catch (error) {
-      console.log(error)
-    }
+    } catch (error) {}
   }
 
   return (

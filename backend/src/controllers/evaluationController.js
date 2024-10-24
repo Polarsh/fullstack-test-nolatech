@@ -314,8 +314,6 @@ export const getEvaluationsByEvaluatorId = async (req, res) => {
 export const completeEvaluation = async (req, res) => {
   const { evaluationId, responses } = req.body;
 
-  console.log({ evaluationId, responses });
-
   try {
     // Verificar que la asignación de evaluación existe
     const evaluation = await AssignedEvaluation.findById(evaluationId);

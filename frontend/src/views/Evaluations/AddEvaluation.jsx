@@ -99,13 +99,9 @@ export default function AddEvaluationPage() {
         categories, // Enviamos las categorías del estado
       }
 
-      console.log(formattedData)
-
       await createEvaluationTemplate(formattedData)
       navigateToMenu()
-    } catch (error) {
-      console.log(error)
-    }
+    } catch (error) {}
   }
 
   const navigateToMenu = () => {
