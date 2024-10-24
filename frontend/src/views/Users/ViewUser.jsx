@@ -44,7 +44,7 @@ export default function ViewUserPage() {
   }
 
   const navigateToViewReport = () => {
-    console.log('navigateToViewReport')
+    navigate(`/trabajadores/reporte/${employeeId}`)
   }
 
   return (
@@ -90,6 +90,12 @@ export default function ViewUserPage() {
           variant={ButtonStyle.Cancel}
         />
         <ButtonComponent
+          onClick={navigateToViewReport}
+          icon={BiChart}
+          label={'Ver reporte'}
+          variant={ButtonStyle.Outline}
+        />
+        <ButtonComponent
           onClick={navigateToAssign}
           icon={PaperAirplaneIcon}
           label={'Evaluar'}
@@ -100,7 +106,7 @@ export default function ViewUserPage() {
   )
 }
 
-const EvaluationAssignedCard = ({ evaluation, navigateToViewReport }) => {
+const EvaluationAssignedCard = ({ evaluation }) => {
   const completedCount = evaluation?.evaluations?.filter(
     evaluation => evaluation.completed === true
   ).length
@@ -136,15 +142,6 @@ const EvaluationAssignedCard = ({ evaluation, navigateToViewReport }) => {
           <span className='text-gray-700'>
             {formatDate(evaluation.assignedAt)}
           </span>
-        </div>
-        {/* Botones */}
-        <div className=' flex gap-4 justify-end pt-4 sm:pt-0'>
-          <ButtonComponent
-            onClick={navigateToViewReport}
-            icon={BiChart}
-            label={'Ver reporte'}
-            variant={ButtonStyle.Outline}
-          />
         </div>
       </div>
     </div>
