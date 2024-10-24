@@ -312,36 +312,34 @@ export const getEvaluationsByEvaluatorId = async (req, res) => {
 
 // Completar una evaluación anónima
 export const completeEvaluation = async (req, res) => {
-  const { assignmentId } = req.params;
-  const { responses } = req.body;
+  const { evaluationId, responses } = req.body;
 
-  const evaluatorId = req.user.employeeId;
+  console.log({ evaluationId, responses });
 
   try {
     // Verificar que la asignación de evaluación existe
-    const assignment = await AssignedEvaluation.findById(assignmentId);
-    if (!assignment) {
+    const evaluation = await AssignedEvaluation.findById(evaluationId);
+    if (!evaluation) {
       return res.status(404).json({
-        error: { message: "Asignación de evaluación no encontrada." },
+        error: { message: "Evaluación no encontrada." },
         data: null,
       });
     }
 
     // Agregar las respuestas y evaluador
-    assignment.responses = responses;
-    assignment.evaluatorId = evaluatorId;
+    evaluation.responses = responses;
 
     // Marcar como completada
-    assignment.completed = true;
-    assignment.completedAt = Date.now();
+    evaluation.completed = true;
+    evaluation.completedAt = Date.now();
 
-    await assignment.save();
+    await evaluation.save();
 
     res.status(200).json({
       error: null,
       data: {
         message: "Evaluación completada exitosamente.",
-        assignment,
+        evaluation,
       },
     });
   } catch (error) {

@@ -74,8 +74,8 @@ router.get(
 
 // Ruta para completar una evaluación
 router.post(
-  "/complete/:assignmentId",
-  authenticateAndAuthorizeRoles("Manager", "Employee"),
+  "/complete",
+  authenticateAndAuthorizeRoles("Admin", "Manager", "Employee"),
   completeEvaluation
 );
 
