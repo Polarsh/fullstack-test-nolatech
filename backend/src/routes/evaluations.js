@@ -2,11 +2,11 @@ import express from "express";
 
 import {
   assignEvaluationToEmployee,
-  checkIfEvaluationPending,
   completeEvaluation,
   createEvaluationTemplate,
   getAllEvaluations,
   getEvaluationsByEmployeeId,
+  getEvaluationsByEvaluatorId,
   getEvaluationTemplateById,
   updateEvaluationTemplate,
 } from "../controllers/evaluationController.js";
@@ -19,13 +19,6 @@ import {
 } from "../middleware/validateEvaluation.js";
 
 const router = express.Router();
-
-// Ruta para verificar si un empleado tiene evaluaciones pendientes
-router.get(
-  "/pending",
-  authenticateAndAuthorizeRoles("Admin", "Manager", "Employee"),
-  checkIfEvaluationPending
-);
 
 // Crear una nueva template evaluación
 router.post(
@@ -63,6 +56,13 @@ router.post(
   authenticateAndAuthorizeRoles("Admin", "Manager"),
   validateAssignEvaluation,
   assignEvaluationToEmployee
+);
+
+// Obtener evaluaciones a realizar
+router.get(
+  "/evaluator/:id",
+  authenticateAndAuthorizeRoles("Admin", "Manager", "Employee"),
+  getEvaluationsByEvaluatorId
 );
 
 // Obtener evaluaciones de un empleado

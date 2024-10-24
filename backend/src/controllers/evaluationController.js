@@ -270,25 +270,24 @@ export const getEvaluationsByEmployeeId = async (req, res) => {
   }
 };
 
-// Verificar si el empleado debe completar una evaluación
-export const checkIfEvaluationPending = async (req, res) => {
+// Obtener evaluaciones por evaluator
+export const getEvaluationsByEvaluatorId = async (req, res) => {
   const employeeId = req.user.employeeId;
-
-  console.log(employeeId);
 
   try {
     // Buscar evaluaciones que aún no han sido completadas por el empleado
-    const pendingEvaluations = await AssignedEvaluation.find({
+    const evaluations = await AssignedEvaluation.find({
       evaluatorId: employeeId,
-      completed: false,
-    });
+    })
+      .populate("evaluationTemplateId", "title")
+      .populate("evaluateeId", "name");
 
-    if (pendingEvaluations.length === 0) {
+    if (evaluations.length === 0) {
       return res.status(200).json({
         error: null,
         data: {
-          message: "No tienes evaluaciones pendientes.",
-          evaluations: [],
+          message: "No tienes evaluaciones.",
+          data: [],
         },
       });
     }
@@ -296,14 +295,14 @@ export const checkIfEvaluationPending = async (req, res) => {
     res.status(200).json({
       error: null,
       data: {
-        message: "Tienes evaluaciones pendientes.",
-        evaluations: pendingEvaluations,
+        message: "Evaluaciones encontradas.",
+        data: evaluations,
       },
     });
   } catch (error) {
     res.status(500).json({
       error: {
-        message: "Error al verificar las evaluaciones pendientes.",
+        message: "Error al obtener las evaluaciones del empleado.",
         details: error.message,
       },
       data: null,
