@@ -70,12 +70,6 @@ El backend está construido usando **Express** y se conecta a una base de datos 
 - **/models**: Contiene los modelos de Mongoose para MongoDB.
 - **/routes**: Define las rutas de la API para manejar usuarios, plantillas de evaluación y asignaciones.
 
-#### Decisiones de diseño:
-
-- **JWT + bcrypt**: Se usa JSON Web Tokens (JWT) para la autenticación segura y bcrypt para el almacenamiento de contraseñas.
-- **MongoDB**: Se eligió MongoDB por su flexibilidad para almacenar documentos relacionados con usuarios, plantillas y evaluaciones.
-- **Roles**: Hay tres roles definidos: `Admin`, `Manager`, y `Employee`. Cada uno tiene permisos diferentes dentro del sistema.
-
 ### Frontend (`/frontend`)
 
 El frontend está construido usando **React** y **Vite**. Implementa una interfaz de usuario moderna y responsiva para la gestión de evaluaciones y usuarios.
@@ -91,19 +85,13 @@ La estructura del proyecto frontend está organizada de la siguiente manera:
 - **/shared**: Contiene componentes reutilizables (botones, inputs) y gráficos (`charts`) usados en toda la aplicación.
 - **/views**: Define las páginas o vistas principales de la aplicación, cada una correspondiente a una pantalla de la interfaz.
 
-#### Decisiones de diseño:
-
-- **React Context API**: Utilizado para manejar la autenticación y el estado global de evaluaciones.
-- **React Hook Form + Yup**: Utilizado para la validación de formularios.
-- **Chart.js**: Usado para gráficos de barra, radar y doughnut.
-- **Tailwind CSS**: Framework CSS utilizado para crear una interfaz de usuario responsiva y moderna rápidamente.
-
 ## Suposiciones del proyecto
 
 - **Roles**: Se han definido tres roles:
-  - **Admin**: Es el rol de sistema, puede crear a los demás usuarios.
-  - **Manager y Employee**: Los managers y empleados pueden ser evaluados y asignar evaluaciones.
-- **Evaluaciones**: Los managers y empleados pueden crear y editar plantillas de evaluación que serán usadas para evaluar tanto managers como empleados.
+  - **Admin**:  Es el encargado de gestionar usuarios.
+  - **Manager**: Los managers pueden crear y editar plantillas de evaluación, asignar evaluaciones y también ser evaluados.
+  - **Employee**: Los empleados solo responden las evaluaciones asignadas..
+- **Evaluaciones**: Tanto managers como empleados pueden ser evaluados, pero solo los managers pueden crear y asignar plantillas de evaluación. Los empleados simplemente completan las evaluaciones que les han asignado.
 - **Feedbacks**: Los feedbacks están asociados a las plantillas de evaluación, no a los evaluados.
 
 ## Scripts
