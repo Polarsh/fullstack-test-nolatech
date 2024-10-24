@@ -18,13 +18,16 @@ import LogOutView from './views/Auth/LogOut'
 
 import UserMenuPage from './views/Users/UserMenu'
 import AddUserPage from './views/Users/AddUser'
+import ViewUserPage from './views/Users/ViewUser'
+import AsignEvaluationPage from './views/Users/AsignEvaluation'
 
 import EvaluationMenuPage from './views/Evaluations/EvaluationMenu'
 import EditEvaluationPage from './views/Evaluations/EditEvaluation'
 import AddEvaluationPage from './views/Evaluations/AddEvaluation'
 import ViewEvaluationPage from './views/Evaluations/ViewEvaluation'
-import AsignEvaluationPage from './views/Users/AsignEvaluation'
-import ViewUserPage from './views/Users/ViewUser'
+import PendingEvaluationsPage from './views/Evaluations/PendingEvaluations'
+import CompleteEvaluationPage from './views/Evaluations/CompleteEvaluation'
+import EvaluationFeedbackPage from './views/Evaluations/EvaluationFeedback'
 
 function ScrollToTop() {
   const { pathname } = useLocation()
@@ -79,12 +82,22 @@ export default function App() {
                       />
                     </Route>
 
+                    <Route path='evaluaciones'>
+                      <Route path='' element={<PendingEvaluationsPage />} />
+                      <Route
+                        path='evaluacion/:evaluationId'
+                        element={<CompleteEvaluationPage />}
+                      />
+                      <Route
+                        path='feedback/:evaluationId'
+                        element={<EvaluationFeedbackPage />}
+                      />
+                    </Route>
+
                     <Route
                       path='asignar/:employeeId'
                       element={<AsignEvaluationPage />}
                     />
-
-                    <Route path='evaluaciones' element={<Dashboard />} />
                   </Route>
 
                   {/* Cerrar sesión */}
