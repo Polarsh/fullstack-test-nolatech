@@ -69,6 +69,24 @@ export const UserProvider = ({ children }) => {
     }
   }
 
+  const getUserReportById = async userId => {
+    try {
+      setUser(null)
+      setLoading(true)
+
+      const response = await UserServices.getUserReportById(userId)
+
+      return response
+      /*  toast.success('Detalles del usuario cargados correctamente') */
+    } catch (err) {
+      setError('Error al cargar los detalles del usuario.')
+      console.error(err)
+      toast.error('Error al cargar los detalles del usuario')
+    } finally {
+      setLoading(false)
+    }
+  }
+
   return (
     <UserContext.Provider
       value={{
@@ -78,6 +96,7 @@ export const UserProvider = ({ children }) => {
         error,
         fetchUserById,
         createUser,
+        getUserReportById,
       }}>
       {children}
     </UserContext.Provider>

@@ -28,6 +28,15 @@ class UserServices {
       handleServiceError(error)
     }
   }
+
+  async getUserReportById(userId) {
+    try {
+      const response = await httpHelper.get(`/api/reports/employee/${userId}`)
+      return response.data.data.report
+    } catch (error) {
+      handleServiceError(error)
+    }
+  }
 }
 
 export default new UserServices()
