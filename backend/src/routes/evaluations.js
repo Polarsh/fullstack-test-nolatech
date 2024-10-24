@@ -4,6 +4,7 @@ import {
   assignEvaluationToEmployee,
   completeEvaluation,
   createEvaluationTemplate,
+  getAllAssignedEvaluations,
   getAllEvaluations,
   getEvaluationsByEmployeeId,
   getEvaluationsByEvaluatorId,
@@ -19,6 +20,13 @@ import {
 } from "../middleware/validateEvaluation.js";
 
 const router = express.Router();
+
+// Obtener todas las evaluaciones asignadas
+router.get(
+  "/assigned",
+  authenticateAndAuthorizeRoles("Admin", "Manager", "Employee"),
+  getAllAssignedEvaluations
+);
 
 // Crear una nueva template evaluación
 router.post(

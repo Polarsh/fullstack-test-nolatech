@@ -212,6 +212,38 @@ export const assignEvaluationToEmployee = async (req, res) => {
   }
 };
 
+// Obtener las plantillas asignadas
+export const getAllAssignedEvaluations = async (req, res) => {
+  try {
+    const evaluations = await AssignedEvaluation.find().populate(
+      "evaluatorId",
+      "name"
+    );
+
+    // Si no hay evaluaciones, simplemente devuelve un array vacío
+    if (evaluations.length === 0) {
+      return res.status(200).json({
+        error: null,
+        data: [],
+        message: "No hay evaluaciones asignadas.",
+      });
+    }
+
+    res.status(200).json({
+      error: null,
+      data: evaluations,
+    });
+  } catch (error) {
+    res.status(500).json({
+      error: {
+        message: "Error al obtener las evaluaciones del empleado.",
+        details: error.message,
+      },
+      data: null,
+    });
+  }
+};
+
 // Obtener evaluaciones por employeeId
 export const getEvaluationsByEmployeeId = async (req, res) => {
   const { id: evaluateeId } = req.params; // ID del empleado evaluado
