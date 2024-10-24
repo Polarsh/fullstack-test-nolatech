@@ -59,6 +59,18 @@ npm run start:all
 
 Esto ejecutará el backend en `http://localhost:3000` y el frontend en `http://localhost:5173`.
 
+## Documentación de la API con Swagger
+
+Este proyecto utiliza **Swagger** para documentar la API de forma interactiva. La documentación generada por Swagger te permite visualizar todas las rutas disponibles, los parámetros que reciben y las respuestas que devuelven.
+
+### Acceso a la Documentación
+
+Una vez que el servidor backend esté en ejecución, puedes acceder a la documentación de la API visitando la siguiente URL en tu navegador:
+
+```
+http://localhost:3000/api-docs
+```
+
 ## Estructura del proyecto
 
 ### Backend (`/backend`)
