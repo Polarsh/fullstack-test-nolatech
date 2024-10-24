@@ -97,12 +97,13 @@ export const getReportForEmployee = async (req, res) => {
     }).populate("evaluationTemplateId", "title");
 
     if (evaluations.length === 0) {
-      return res.status(404).json({
-        error: {
+      return res.status(200).json({
+        error: null,
+        data: {
           message:
             "No se encontraron evaluaciones completadas para este empleado.",
+          data: [],
         },
-        data: null,
       });
     }
 
@@ -110,7 +111,7 @@ export const getReportForEmployee = async (req, res) => {
 
     res.status(200).json({
       error: null,
-      data: { message: "Reporte generado exitosamente.", report },
+      data: { message: "Reporte generado exitosamente.", data: report },
     });
   } catch (error) {
     res.status(500).json({
